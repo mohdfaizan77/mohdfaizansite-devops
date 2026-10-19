@@ -1,0 +1,75 @@
+# Git Introduction
+
+Source: https://www.geeksforgeeks.org/git/git-introduction/
+
+Git is a distributed version control system (VCS) used to track changes in source code during software development. It helps developers collaborate, manage different versions of code, and roll back to previous states if needed.
+- Multiple developers can work together and merge changes easily.
+- Revert to previous versions whenever needed.
+- Develop features separately and merge them safely.
+- Each developer has a full copy of the repo.
+- Stores snapshots of the entire tree and optimizes storage internally using compression and delta encoding.
+
+## Core Concepts of Git
+Before using Git, it is important to understand some of its core concepts. These concepts will help you get started and make it easier to work with Git in real-world scenarios.
+
+### 1. Repositories
+A repository (or repo) is a storage space where your project files and their history are kept. There are two types of repositories in Git:
+- Local Repository: A copy of the project on your local machine.
+- Remote Repository: A version of the project hosted on a server, often on platforms like GitHub, GitLab, or Bitbucket.
+
+### 2. Commits
+A commit is a snapshot of your project at a specific point in time. Each commit has a unique identifier (hash) and includes a message describing the changes made. Commits allow you to track and review the history of your project.
+
+### 3. Branches
+Branches allow developers to work on separate tasks without affecting the main codebase. Common branch types include:
+- Main (or Master) Branch: The stable version of the project, usually production-ready.
+- Feature Branch: Used for developing new features or bug fixes.
+
+### 4. Merging
+Merging is the process of integrating changes from one branch into another. It allows you to combine the work done in different branches and resolve any conflicts that arise.
+
+### 5. Cloning
+Cloning a repository means creating a local copy of a remote repository. This copy includes all files, branches, and commit history.
+
+### 6. Pull and Push
+- Git pull Fetches updates from the remote repository and integrates them into your local repository.
+- Git push Sends your local changes to the remote repository, making them available to others.
+
+### The Three States (The Staging Area)
+In Git, your files can be in one of three main states. Understanding this is key to understanding how Git works:
+- Working Directory: This is your project folder with all the files you are currently working on. Any changes you make here are not yet tracked by Git.
+- Staging Area (or Index): This is an intermediate area where you list the specific changes you want to include in your next "snapshot" or commit. You use the git add command to move changes from your working directory to the staging area.
+- Repository (.git directory): This is where Git permanently stores the snapshots (commits) of your project. You use the git commit command to save the staged changes into the repository.
+
+## Git Workflow
+
+## Git History
+- Git was created by Linus Torvalds in 2005 to manage the development of the Linux kernel.
+- It was designed to be fast, distributed, and reliable for managing large software projects.
+- Over time, Git became one of the most widely used version control systems in software development.
+- Today, it is commonly used with platforms like GitHub, GitLab, and Bitbucket for collaboration and code management.
+For more details about the history and evolution of Git, you can refer here.
+
+## Git Hosting
+Git Hosting stores your Git repositories on a remote server, enabling collaboration, backup, pull requests, CI/CD, and even website hosting, while Git manages changes locally.
+
+### GitHub
+GitHub is a cloud-based Git hosting platform owned by Microsoft, popular for open-source projects and beginner developers. It provides a complete environment for version control, collaboration, and deployment.
+- Unlimited public and private repositories
+- Pull requests and code reviews for team collaboration
+- GitHub Pages for hosting static websites
+- Automation and CI/CD with GitHub Actions
+
+### GitLab
+GitLab is a complete DevOps platform offering Git repository hosting along with built-in CI/CD, issue tracking, and project management tools. It is ideal for teams and enterprises looking to automate workflows and manage code efficiently.
+- Public and private repositories
+- Built-in CI/CD pipelines for automation
+- Issue tracking and project management
+- Option for self-hosting for full control and privacy.
+
+### Bitbucket
+Bitbucket is a Git hosting platform by Atlassian, designed for private repositories and team collaboration. It is ideal for small teams or companies seeking a secure environment with tight integration to project management tools.
+- Private and public repositories
+- Bitbucket Pipelines for CI/CD automation
+- Integration with Jira and Trello
+- Secure and collaborative environment for teams.

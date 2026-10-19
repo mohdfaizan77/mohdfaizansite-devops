@@ -1,0 +1,62 @@
+# DevOps Best Practices for Kubernetes
+
+Source: https://www.geeksforgeeks.org/devops/devops-best-practices-for-kubernetes/
+
+Kubernetes works best when combined with DevOps practices that automate application delivery, improve security, and ensure reliable operations. The following practices help teams efficiently develop, deploy, and manage applications on Kubernetes.
+
+### 1. Test Automation
+Automated testing helps validate containerized applications before deploying them to Kubernetes.
+- Automate application testing before deployment.
+- Test Docker images and container behavior.
+- Validate Kubernetes YAML files for configuration errors.
+- Identify issues before applications reach the Kubernetes cluster.
+- Deploy only tested changes.
+
+### 2. Deployment Automation
+Deployment automation allows applications to be deployed to Kubernetes through CI/CD pipelines.
+- Automatically deploy applications after successful builds and tests.
+- Integrate Kubernetes deployments with Jenkins or GitHub Actions.
+- Maintain consistent deployment processes across environments.
+- Reduce the time required to release application updates.
+- Roll back to a previous stable version when required.
+
+### 3. Trunk-Based Development
+Trunk-based development encourages developers to frequently merge code changes into the main branch, which can trigger automated Kubernetes deployment pipelines.
+- Frequently merge changes into the main branch.
+- Keep development branches short-lived.
+- Trigger automated CI/CD pipelines after code changes.
+- Identify integration issues earlier.
+- Support faster delivery of Kubernetes applications.
+
+### 4. Security Testing in the Deployment Pipeline
+Security testing should be included in the CI/CD pipeline before applications are deployed to Kubernetes.
+- Scan container images for vulnerabilities.
+- Check Kubernetes configurations for security issues.
+- Protect sensitive credentials and configuration data.
+- Identify security issues before deployment.
+- Integrate security throughout the Kubernetes delivery workflow.
+
+### 5. Test Only the Changed Components
+Kubernetes applications can be divided into independently deployable workloads and services, allowing teams to focus testing on the components affected by a change.
+- Deploy applications as smaller, independent workloads.
+- Test only the components affected by changes.
+- Reduce unnecessary testing.
+- Deploy individual services independently.
+- Save testing time and computing resources.
+
+### 6. Infrastructure as Code (IaC)
+Infrastructure as Code allows Kubernetes infrastructure and resources to be defined and managed using configuration files or code.
+- Automate Kubernetes infrastructure provisioning and configuration.
+- Define Kubernetes resources using YAML manifests.
+- Use tools such as Terraform, Ansible, or Helm.
+- Maintain consistent configurations across environments.
+- Store infrastructure configurations in Git and track changes.
+
+### 7. Monitoring and Observability
+Monitoring and observability provide visibility into the health and performance of Kubernetes clusters and applications.
+- Monitor Pod health, status, and restarts.
+- Track Node CPU, memory, and other resource usage.
+- Monitor application performance and availability.
+- Collect logs and metrics to identify issues.
+- Configure alerts for failures and high resource usage.
+- Use tools such as Prometheus and Grafana for Kubernetes monitoring.

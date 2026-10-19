@@ -1,0 +1,260 @@
+# What Is Docker Volume?
+
+Source: https://www.geeksforgeeks.org/devops/what-is-docker-volume/
+
+Docker Volumes provide persistent storage for containers, allowing data to remain available even after a container is stopped, removed, or recreated.
+- Managed directly by Docker for storing and preserving container data.
+- Mount a dedicated filesystem or storage location inside the container.
+- Ensure data persists beyond the container's lifecycle.
+- Prevent data loss when containers are stopped, removed, or recreated.
+- Provide a reliable and efficient way to manage persistent application data.
+
+## Persistent Storage with Docker Volumes
+Docker containers are ephemeral, meaning data stored inside a container is lost when the container is removed. Docker Volumes provide persistent storage by keeping data independent of the container's lifecycle.
+- Data Durability: Data remains available even when a container is stopped, deleted, or updated.
+- Decoupling: Keeps application data separate from the container and its application logic.
+- Seamless Updates: Allows containers or images to be replaced or upgraded without losing important data such as databases or user uploads.
+
+## Independent Lifecycle of Docker Volumes
+Unlike containers, Docker Volumes have an independent lifecycle, meaning the data stored in a volume remains available even after the container using it is stopped or removed.
+- Persistence Beyond Containers: Data stored in a volume remains intact even when the container is destroyed.
+- Shared Access: A volume can be mounted to multiple containers, allowing different applications or services to share data.
+- Volume Cleanup: Volumes are not automatically removed when unused. You can manually remove unused volumes using docker volume prune.
+- Independent Management: Volumes can be managed separately from containers, providing greater flexibility and data protection.
+
+## Bind Mounts Vs. Docker Volumes
+Feature	Bind Mounts	Docker Volumes
+Storage Location	Any user-specified directory on the host.	Managed by Docker in a specific storage area.
+Management	Manual (Host filesystem dependent).	Automatic (Managed via Docker CLI/API).
+Lifecycle	Tied to the host's directory structure.	Independent of the container lifecycle.
+Performance	High, but varies by host OS.	Optimized; generally better I/O in production.
+Primary Use Case	Development: Syncing source code for real-time testing.	Production: Databases, stateful apps, and persistent data.
+Security/Isolation	Low; container can modify sensitive host files.	High; isolated from the host's sensitive system files.
+
+## Types Of Mounts in Docker
+Mount Type	Description	Key Characteristics	Common Use
+Volumes	Storage managed directly by Docker and stored in a dedicated section of the host filesystem, such as /var/lib/docker/volumes on Linux.	Docker manages the data; reliable and efficient for persistent storage. Can be created using docker volume create or automatically by Docker.	Persistent application data, databases, and important files
+Named Pipes	A mechanism that allows communication between a container and the Docker host.	Useful for communication with the Docker Engine API and other host services.	Connecting applications inside containers to the Docker Engine API
+Bind Mounts	Maps a specific file or directory from the host filesystem directly into a container.	Can be located anywhere on the host and can be modified by both Docker and non-Docker processes.	Sharing host files or directories with containers
+
+## Named Vs. Anonymous Volumes
+Named Volumes	Anonymous Volumes
+Assigned a custom, human-readable name.	Assigned a random, long alphanumeric ID.
+Easy to track, backup, and remove manually.	Difficult to track; often lead to "volume clutter."
+Can be easily referenced by name across multiple containers.	Requires the specific ID to reuse, which is impractical.
+Long-term data (Databases, config files).	Temporary storage or specific state isolation.
+Persist until explicitly deleted by the user.	Deleted automatically if the container is run with the --rm flag.
+
+## Docker Volume Plugins
+Docker Engine volume plugins link Engine installations with external storage systems such as Amazon EBS, allowing data volumes to survive beyond the lifespan of a single Docker host. For further details, please refer to the plugin documentation.
+
+### Command-Line Changes
+Use the --volume and --volume-driver options on the docker container run command to grant a container access to a volume. The host's volume name and path are accepted by the --volume (or -v) flag, whereas the driver type is accepted by the --volume-driver flag.
+
+```
+ $ docker volume create --driver=flocker volumename
+
+ $ docker container run -it --volume volumename:/data busybox sh
+
+```
+
+### Volume Plugin Protocol
+If a plugin registers itself as a VolumeDriver when activated, it must provide the Docker Daemon with writeable paths on the host filesystem. The Docker daemon provides these paths to containers to consume. The Docker daemon makes the volumes available by bind-mounting the provided paths into the containers.
+
+```
+{
+    "Name": "volume_name",
+    "Opts": {}
+}
+
+```
+
+## Using Docker Volumes
+
+### Manually Creating and Linking Volumes with Proper Naming And Labeling Conventions
+- Make sure you use appropriate name and labelling practices when establishing Docker volumes.
+
+```
+docker volume create \
+--label description="my_vol" \
+--label version="1.0.1" \
+my_vol
+```
+
+### Using Volumes in Dockerfiles with Controlling Permissions For Volumes
+- In order to preserve data security and integrity, make sure the appropriate permissions are specified for Docker volumes.
+
+```
+FROM baseimage
+RUN mkdir /app/data
+RUN chown -R 1000:1000 /app/data
+RUN chmod 755 /app/data
+VOLUME /app/data
+
+```
+
+### Mounting Volumes as Read-Only
+Mounting volumes as read-only in Docker allows for the protection of sensitive or critical data from unintended modifications. By setting the volume option to read-only, you ensure that any changes made within the container are not persisted to the underlying volume, preserving data integrity and security.
+
+```
+docker run -d \
+  -v /path/on/host:/path/in/container:ro \
+  --name my_container \
+  my_image
+```
+- -v /path/on/host:/path/in/container:ro mounts the directory /path/on/host on the host machine to /path/in/container in the container as read-only (ro).
+- --name my_container assigns the name my_container to the Docker container.
+- my_image is the name of the Docker image used to create the container.
+
+### Tracking And Controlling Volume Consumption
+- To maximise resource consumption, track and adjust Docker volume usage on a regular basis.
+
+```
+$ docker system df -v
+```
+
+### Populating Volume Content
+When a volume is mounted to a container path that already contains data, Docker copies the existing data into the volume to help preserve it.
+- Data Preservation: Existing container data is copied to the new volume instead of being lost.
+- Shared Data: Other containers using the same volume can access the copied content.
+- Data Integrity: Helps prevent accidental data loss when introducing a volume to an existing container path.
+
+### Reusing Volumes When Containers Start
+Instead of manually specifying each volume with the -v flag, you can use --volumes-from to inherit volumes from an existing container when starting a new container:
+
+```
+# Create the first container
+$ docker run -d --name test -v my_vol:/data image:latest
+
+# Create the second container
+$ docker run -d --name backup --volumes-from test image:latest
+```
+This command automatically mounts all volumes from the "test" container into the "backup" container, simplifying the setup process. It's handy for tasks like backing up data from one container to another.
+
+## Interacting With Docker Volumes
+Each volume's name and the storage driver that supports it will be shown. Use docker volume inspect to obtain more in-depth details about a particular volume instead:
+
+### Inspecting Volumes
+To inspect volumes in Docker, you can use the docker volume inspect command followed by the name or ID of the volume you want to inspect. For example:
+
+```
+docker volume inspect my_vol
+```
+
+### Removing Volumes
+To remove volumes in Docker, you can use the docker volume rm command followed by the name or ID of the volume you want to remove. For example:
+
+```
+docker volume rm my_vol
+```
+
+### Pruning Volumes
+To prune volumes in Docker, you can use the docker volume prune command. This command removes all volumes not used by at least one container. Here's how you can use it:
+
+```
+docker volume prune
+```
+
+## Starting a Container with a Volume
+
+### On Using -v Option
+- We may start a container with a bind mount using the -v option:
+
+```
+$ docker run -v $(pwd):/var/opt/project bash:latest \
+  bash -c "ls /var/opt/project"
+```
+- This shows nothing from the mount position. However, if we write to the volume within a single execution of the container:
+
+```
+$ docker run -v data-volume:/var/opt/project bash:latest \
+  bash -c "echo 'Hello World' > /var/opt/project/test.txttmpfs"
+```
+
+### Using The –mount Option
+- To indicate the volume we want to mount, we might find it easier to use the more obvious –mount option:
+
+```
+$ docker run --mount \
+  'type=volume,src=data-volume,\
+  dst=/var/opt/project,volume-driver=local,\
+  readonly' \ 
+  bash -c "ls /var/opt/project"
+```
+
+### On Using Shared Volumes
+Assume that we used the data-volume mount in a container to run our echo script. Afterwards, we could make a list of every container we've used:
+
+```
+$ docker ps -a
+CONTAINER ID   IMAGE             COMMAND                  CREATED              STATUS                          PORTS      NAMES
+5774502f857   bash              "docker-entrypoint.s…"   8 minutes ago        Exited (0) 8 minutes ago                   exciting_payne
+```
+
+## How to use Docker Volumes?
+The following command launches a fresh Ubuntu 22.04 container and connects your terminal to it (-it), enabling you to execute example commands in the ensuing stages. Within the container, a volume named demo_volume is mounted to /data. Use the following command right now:
+
+```
+$ docker run -it -v demo_volume:/data ubuntu:22.06
+
+```
+- Give a list of everything in the /data directory of your container:
+
+```
+$ ls /data
+
+```
+- Include a test file with any random content:
+
+```
+$ echo "foobar" > /data/foo
+$ cat /data/foo
+foobar
+```
+- Launch a fresh container with the same volume attached now:
+
+```
+$ docker run -it -v demo_volume:/app alpine:latest
+
+```
+- Add the --mount option to the docker run command in order to mount a data volume to a container.
+- It stores the data created inside the virtual environment by adding volume to the designated container.
+- To launch a container and mount a data drive to it, use the following syntax:
+
+```
+$ docker run --mount source=[volume_name],destination=[path_in_container] [docker_image]  
+
+```
+
+## Troubleshooting Common Docker Volume Issues
+
+### Permission Denied When Mounting Volumes
+- If you are mounting a local disc or host directory with the -v option while operating a Docker container, as follows:
+
+```
+docker run -it --rm \
+    -p 8888:8888 \
+    -v <my-vol>:<container-dir> \
+    quay.io/jupyter/minimal-notebook:latest
+```
+
+### Incompatible CPU detected
+A processor (CPU) that supports virtualization—more especially, the Apple Hypervisor framework—is necessary for Docker Desktop to function. Only Mac computers with CPUs that support the Hypervisor framework may use Docker Desktop.
+
+```
+$ sysctl kern.hv_support
+```
+
+### Path Conversion On Windows
+When using Linux, mounting a route to another path is handled by the system. For instance, when executing the subsequent command on a Linux system:
+
+```
+ $ docker run --rm -ti -v /home/user/work:/work alpine
+```
+
+### Permissions Errors On Data Directories For Shared Volumes
+Docker Desktop applies default 0777 permissions to shared volumes when files are shared from Windows. These permissions cannot be customized for shared drives.
+- Shared volumes use 0777 permissions for read, write, and execute access.
+- The default permissions on shared drives cannot be modified.
+- Applications requiring specific file permissions may encounter issues when using shared volumes.
+- Use non-host-mounted volumes or configure the application to work with the default permissions.

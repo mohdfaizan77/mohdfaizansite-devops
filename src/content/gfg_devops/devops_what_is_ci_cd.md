@@ -1,0 +1,59 @@
+# Introduction to CI/CD
+
+Source: https://www.geeksforgeeks.org/devops/what-is-ci-cd/
+
+CI/CD (Continuous Integration and Continuous Delivery/Deployment) is a modern software development practice that automates the process of building, testing, and releasing applications. It plays a key role in DevOps by improving collaboration between development and operations teams.
+- Automates code integration, testing, and deployment workflows.
+- Reduces manual effort while improving software quality.
+- Enables faster and more reliable software releases.
+
+## Before vs After CI/CD Adoption
+
+### Before CI/CD Adoption
+- Code was merged infrequently, causing integration conflicts.
+- Builds and tests were performed manually.
+- Bugs were detected late, making fixes costly.
+- Deployments were lengthy and risky due to large releases.
+- Development, testing, and operations teams worked separately.
+- Releases required significant manual effort.
+
+### After CI/CD Adoption
+- Developers commit code frequently to a shared repository.
+- Builds and tests are automated.
+- Bugs are detected early and fixed quickly.
+- Smaller, frequent updates make releases more reliable.
+- Teams collaborate better through automation and transparency.
+- Continuous Delivery keeps code release-ready.
+- Continuous Deployment enables automatic production releases.
+
+## Three Pillars of CI/CD
+To effectively implement CI/CD, it is important to understand its three core concepts: Continuous Integration, Continuous Delivery, and Continuous Deployment.
+
+### Continuous Integration (CI)
+Continuous Integration focuses on integrating code changes frequently to avoid conflicts and ensure code stability.
+- Prevent integration issues caused by delayed code merging.
+- Developers merge code changes into the main branch frequently.
+- Each commit triggers automated builds and unit tests.
+- Failed builds are rejected and developers are notified immediately.
+Note: Both Continuous Delivery and Continuous Deployment are abbreviated as "CD," but they differ in release automation. Continuous Delivery requires manual approval before production release, whereas Continuous Deployment automates the release process completely.
+
+### Continuous Delivery (CD)
+Continuous Delivery ensures that the application is always ready for release with minimal manual effort.
+- Keep the application in a release-ready state at all times.
+- Code is deployed to staging or testing environments after CI succeeds.
+- Integration, system, and performance tests run automatically.
+- Deployment to production requires manual approval.
+
+### Continuous Deployment (CD)
+Continuous Deployment extends automation by automatically releasing changes to production.
+- Enable fully automated and faster software releases.
+- Code is automatically deployed to production after all tests pass.
+- The entire release pipeline runs without human intervention.
+- Requires comprehensive automated testing and effective monitoring.
+
+## Real World Use Cases
+- Google uses automated testing to validate software changes.
+- Netflix uses automated software delivery practices.
+- Spotify uses continuous delivery practices to support frequent improvements.
+- Microsoft provides security scanning and automation through GitHub tools.
+- Amazon uses automation to support large-scale software delivery.

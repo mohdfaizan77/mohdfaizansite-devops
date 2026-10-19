@@ -1,0 +1,81 @@
+# CAP Theorem in System Design
+
+Source: https://www.geeksforgeeks.org/system-design/cap-theorem-in-system-design/
+
+According to the CAP theorem, a distributed system cannot simultaneously guarantee Consistency, Availability, and Partition Tolerance when a network partition occurs. CAP does not mean that a system simply chooses any two properties permanently. Instead, when a network partition happens, the system must trade off between consistency and availability while continuing to tolerate the partition.
+- Consistency (C): Every read receives the most recent write or an error.
+- Availability (A): Every request receives a response, even if the response may not contain the latest data.
+- Partition Tolerance (P): The system continues operating even when communication between some nodes is interrupted or delayed.
+
+## Properties
+The property of three distributed system characteristics to which CAP Theorem refers:
+
+### 1. Consistency
+In the CAP theorem, consistency means that every successful read receives the most recent completed write or an error, providing a single consistent view of the data. Eventual consistency provides weaker guarantees: replicas may temporarily return different values but will converge to the same value if no new updates are made.
+In the above Diagram
+- All nodes see a consistent view of the data. A read should return the most recent successful write, regardless of which node handles the request.
+- Updates are coordinated across nodes so clients do not receive stale or conflicting data. During a network partition, maintaining consistency may require rejecting or delaying some requests.
+
+### 2. Availability
+Availability defines that all non-failing nodes in a distributed system return a response for all read and write requests in a bounded amount of time, even if one or more other nodes are down.
+In above Diagram
+- The system continues accepting requests and remains operational, even when some nodes or network links have problems.
+- Every request receives a response, although the response may not always contain the latest data. This is the key idea behind Availability in the CAP theorem.
+
+### 3. Partition Tolerance
+Partition Tolerance defines that the system continues to operate despite arbitrary message loss or failure in parts of the system. Distributed systems guaranteeing partition tolerance can gracefully recover from partitions once the partition heals.
+In the above Diagram
+- Addresses network failures, a common cause of partitions. It suggests that the system is designed to function even when parts of the network become unreachable.
+- The system can adapt to arbitrary partitioning, meaning it can handle unpredictable network failures without complete failure.
+
+## Trade-Offs in the CAP Theorem
+The CAP theorem explains the trade-offs a distributed system must make when a network partition occurs. Since partition tolerance is generally necessary in distributed systems, the practical decision is usually between maintaining consistency and maintaining availability.
+We can classify the systems into the following three categories:
+
+### 1. CA System
+A CA system provides Consistency and Availability but does not tolerate network partitions. This means that all nodes always return the same data and the system remains accessible, but if a network partition occurs, the system cannot continue operating correctly.
+Example: A distributed system that provides consistency and availability when no network partition occurs, but does not tolerate partitions, can be described as CA under the CAP model. CAP classification depends on the system's architecture and behavior during partitions.
+
+### 2. CP System
+A CP system provides Consistency and Partition Tolerance but sacrifices availability during network failures. When a partition occurs between nodes, the system may temporarily block requests to ensure that all nodes maintain consistent data.
+Examples: Systems such as HBase and appropriately configured MongoDB deployments can be designed to favor consistency during network partitions.
+
+### 3. AP System
+An AP system provides Availability and Partition Tolerance but does not guarantee immediate consistency. During a network partition, the system continues to serve requests, but some nodes may return stale or outdated data until the system eventually synchronizes.
+Examples: Apache Cassandra and systems designed around highly available, eventually consistent operations can favor the AP side of the CAP trade-off. DynamoDB supports both eventually consistent and strongly consistent reads, depending on the operation and configuration.
+
+## Example
+This example demonstrates how the CAP theorem trade-off works during a network partition in a distributed system.
+In the above Diagram,
+- We have a simple distributed system where S1 and S2 are two server. The two server can talk to each other. Here, System is partition tolerant. Here We will prove that system can be either consistent or available.
+- Suppose there is a network failure and S1 and S2 cannot talk to each other. Now assume that the client makes a write to S1. The client then send a read to S2.
+- Given S1 and S2 cannot talk, they have different view of the data. If the system has to remain consistent, it must deny the request and thus give up on availability.
+- If the system is available, then the system has to give up on consistency. This proves the CAP Theorem.
+
+## Use Cases
+Here are some practical examples of how different applications handle CAP theorem trade-offs during network partitions.
+
+### 1. Banking Transactions (CP System)
+Problem Statement
+Consider a banking system that processes account transfers and balance updates. Such systems generally prioritize Consistency (C) and Partition Tolerance (P) when a network partition occurs.
+Why CP is Preferred
+- Financial transactions must maintain correct and consistent account balances across the system.
+- During a network partition, the system may reject or delay some transactions rather than allow conflicting or incorrect data.
+- This helps prevent problems such as double spending, duplicate transactions, or incorrect account balances.
+
+### 2. Social Media Newsfeed (AP System)
+Problem Statement
+Consider a social media newsfeed that continuously displays posts, comments, and updates. Such systems may prioritize Availability (A) and Partition Tolerance (P) for features where temporary inconsistency is acceptable.
+Why AP is Preferred
+- Users should continue to access their newsfeeds even when some servers or network connections are temporarily unavailable.
+- During a partition, different users may temporarily see slightly different or outdated versions of the same data.
+- Once communication is restored, replicas can synchronize and eventually become consistent.
+
+### 3. Online Shopping Application (Hybrid CAP Approach)
+Problem Statement
+An online shopping application contains different operations with different consistency requirements, so different components may make different CAP trade-offs.
+Using AP and CP Approaches
+- Operations such as browsing products or maintaining a non-critical shopping cart may favor availability, allowing users to continue interacting with the application during temporary network problems.
+- Critical operations such as inventory reservation, order confirmation, and payment processing generally require stronger consistency to avoid duplicate orders or incorrect stock updates.
+- Therefore, different services within the same application can make different consistency-versus-availability trade-offs depending on the business requirement.
+Note: CAP trade-offs become important specifically during a network partition. When there is no partition, a distributed system may provide both high consistency and high availability.

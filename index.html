@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="application-name" content="DevOps Journey" />
+    <meta name="apple-mobile-web-app-title" content="DevOps Journey" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#0B1220" />
+    <script>
+      (() => {
+        let theme = 'dark'
+        try {
+          if (localStorage.getItem('theme') === 'light') theme = 'light'
+        } catch { /* Keep the default when browser storage is unavailable. */ }
+        document.documentElement.dataset.theme = theme
+        document.querySelector('meta[name="theme-color"]').content = theme === 'light' ? '#F3F6FC' : '#0B1220'
+      })()
+    </script>
+    <meta name="description" content="A connected learning path through DevOps. Explore one concept at a time." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DevOps Journey" />
+    <meta property="og:title" content="DevOps Journey" />
+    <meta property="og:description" content="A connected learning path through DevOps. Explore one concept at a time." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="DevOps Journey" />
+    <meta name="twitter:description" content="A connected learning path through DevOps. Explore one concept at a time." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevOps / Journey</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+# Scalability in System Design
+
+Source: https://www.geeksforgeeks.org/system-design/what-is-scalability/
+
+Scalability refers to a system's ability to handle increasing workloads, users, or data by adding or adjusting resources while maintaining acceptable performance.
+- Handling Increased Load: A scalable system can support more users, requests, or data as demand increases.
+- Resource Expansion: Resources such as servers, computing power, memory, or storage can be added or adjusted to meet the increased demand.
+Example: A video streaming platform can add more application server instances when the number of users increases, allowing the system to handle additional requests.
+
+## Real-World Examples of Scalable Systems
+Modern large-scale applications use different technologies and architectural approaches to handle changing workloads.
+- Cloud Platforms: Cloud providers such as Google Cloud and AWS provide services that allow organizations to increase or decrease computing, storage, and other resources according to demand.
+- Large Web Applications: High-traffic applications commonly use techniques such as load balancing, caching, database replication, and horizontal scaling to handle large numbers of users.
+- Streaming Platforms: Video and content-delivery systems can combine distributed infrastructure, caching, CDNs, and horizontal scaling to serve large numbers of users.
+
+## Approaches to Achieve Scalability
+Different approaches can be used depending on workload, architecture, and infrastructure requirements.
+- Vertical Scaling: It involves increasing the CPU, memory, or storage capacity of an existing server. It is relatively simple to implement but is limited by hardware capacity and may require downtime during upgrades.
+- Horizontal Scaling: It involves adding more servers or instances to distribute workloads and handle increasing traffic. It improves system capacity but requires applications to support distributed operations, often using load balancers.
+- Microservices: It divides an application into independently deployable services that can scale based on individual workloads. It is an architectural approach that enables flexible scaling rather than a scaling technique itself.
+- Serverless: It allows applications to run without directly managing servers. Cloud providers handle infrastructure and can automatically scale resources based on demand, subject to concurrency limits, throttling, and platform constraints.
+
+## Factors Affecting Scalability
+Several factors influence a system's ability to handle increasing workloads while maintaining performance and efficiency. Key factors include:
+- Performance Bottlenecks: Slow database queries, inefficient algorithms, limited resources, or external dependencies can restrict system scalability.
+- Resource Utilization: Efficient use of CPU, memory, storage, and network resources helps improve throughput and reduce costs.
+- Network Latency: High network delays can affect communication between distributed services, reducing system responsiveness.
+- Data Storage and Access: Efficient indexing, caching, replication, and partitioning help manage growing data volumes and workloads.
+- Concurrency and Parallelism: Enable multiple tasks to progress concurrently or execute simultaneously, improving throughput when resources are managed efficiently.
+- System Architecture: Modular and loosely coupled components make it easier to distribute workloads and scale individual services independently.
+
+## Components That Support Scalability
+Some important components and techniques that support system scalability include:
+- Load Balancer: Distributes incoming traffic across multiple servers or application instances to reduce overload and support horizontal scaling.
+- Caching: Stores frequently accessed data temporarily to reduce latency and backend load.
+- Database Replication: Creates copies of data across database instances to improve read capacity and availability, with possible consistency trade-offs depending on the replication model.
+- Data Partitioning and Sharding: Divide data into smaller partitions and, where appropriate, distribute them across multiple database instances to spread storage and query load.
+- Content Delivery Networks (CDNs): Deliver cached content from geographically distributed locations closer to users, reducing origin load and latency.
+- Queueing Systems: Allow work to be processed asynchronously, helping absorb traffic spikes and reduce pressure on downstream services.
+
+## Challenges and Trade-offs in Scalability
+Scalability helps systems handle increasing workloads, but it also introduces trade-offs related to cost, complexity, performance, and data management.
+- Cost vs Scalability: Adding servers, replicas, caches, and distributed services can increase system capacity but also raises infrastructure and operational costs.
+- Complexity: Distributed systems generally require more effort to deploy, monitor, debug, test, and maintain.
+- Latency vs Throughput: Techniques such as batching may improve throughput while increasing the latency experienced by individual requests.
+- Consistency vs Scalability: Techniques such as asynchronous replication can improve read scalability but may temporarily expose stale data.
+- Partitioning Trade-offs: Partitioning can improve scalability but introduces challenges such as uneven data distribution, hot partitions, cross-partition queries, data movement, and rebalancing.

@@ -1,0 +1,91 @@
+# Manual Scheduling In Kubernetes
+
+Source: https://www.geeksforgeeks.org/devops/manual-scheduling-in-kubernetes/
+
+The Kubernetes Scheduler is a control plane component responsible for deciding which node should run each Pod. It evaluates available nodes using two main steps filtering unsuitable nodes and scoring the remaining nodes to select the best fit.
+
+## Automated Scheduler
+For 99% of workloads, you'll rely on the default Kubernetes scheduler. It's a highly intelligent component that watches for new Pods and assigns them to the best possible Node in a two-stage process.
+
+### Stage 1: Filtering
+In this stage, the scheduler finds a set of feasible Nodes where the Pod could run. It applies a series of tests, called predicates. If a Node fails any of these tests, it is removed from consideration for this Pod.
+Common filters include:
+- PodFitsResources check does the Node have enough available CPU and memory to satisfy the Pod's resource requests?
+- PodFitsHostPorts check If the Pod requests to bind to a specific port on the Node, is that port already in use?
+- NodeSelector verify that does the Node have the labels specified in the Pod's nodeSelector field?
+- Taints and Tolerations check whether the Pod has a matching toleration for the Node’s taints.
+Note: If no nodes pass the filtering stage, the Pod remains in a Pending state until a suitable Node becomes available.
+
+### Stage 2: Scoring
+After filtering, the scheduler might have a list of several feasible Nodes. In the scoring stage, it ranks these Nodes from best to worst to find the most suitable one. It does this by applying a set of priority functions.
+Common scoring rules include:
+- LeastRequestedPriority checks whether the Node is less utilized and favors Nodes with more available resources to spread workloads evenly across the cluster.
+- ImageLocalityPriority checks whether the Node already has the container image required by the Pod and gives it a higher score for faster Pod startup.
+- NodeAffinity / Anti-Affinity checks whether the Node matches the Pod’s preferred or restricted labels, such as preferring Nodes with SSD storage.
+- PodAffinity / Anti-Affinity checks where related Pods are already running and prefers or avoids placing the Pod on the same Node, such as running a frontend Pod with its cache Pod.
+Note: The Node with the highest final score is chosen, and the scheduler binds the Pod to that Node.
+
+## Manual Scheduling
+Step 1: First create a config file for kind to create a cluster . Here mention the number of worker nodes you want to create in the cluster.
+config.yml
+
+```
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+- role: worker
+- role: worker
+
+```
+Step 2: Create a cluster using the config file.
+
+```
+kind create cluster --config config.yml
+
+```
+Step 3: Now check the nodes in the cluster using the command below .
+
+```
+kubectl get nodes 
+
+```
+Step 4: Now write a YAML file to create a pod and run in one of the nodes on the cluster . Here in the nodeName field mention the name of node on which you want to schedule the pod for running.
+pod.yml
+
+```
+apiVersion: v1
+kind: Pod
+metadata: 
+  labels:
+    run: my-pod
+  name: my-pod
+spec:
+  nodeName: kind-control-plane
+  containers:
+  - image: nginx
+    name: my-pod
+  restartPolicy: Never
+
+```
+Step 5: Now create a pod on the cluster using the command below.
+
+```
+kubectl apply -f pod.yml
+
+```
+Step 6: After this check in which node pod is running , using the command below . Here you will see the same node as we have mentioned in the nodeName field in pod.yml.
+
+```
+kubectl get pods -o wide
+
+```
+Like this you can change the node name and can manually schedule the running of a pod on any node.
+
+## Moving a Running Pod
+A Pod cannot be moved directly from one Node to another after it has been scheduled. To move an application, Kubernetes creates a new Pod and lets the scheduler choose a suitable Node.
+- Use a controller such as Deployment or StatefulSet to manage the Pod.
+- Delete the existing Pod from the current Node.
+- The controller detects the missing Pod and creates a new one.
+- The scheduler filters and scores available Nodes.
+- The new Pod is scheduled on the most suitable Node.

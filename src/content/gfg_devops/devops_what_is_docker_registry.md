@@ -1,0 +1,83 @@
+# Docker Registry
+
+Source: https://www.geeksforgeeks.org/devops/what-is-docker-registry/
+
+A Docker Registry is a centralized system for storing, managing, and distributing Docker images. It helps streamline the deployment and management of containerized applications.
+- Designed to be stateless and scalable.
+- Organizes images into repositories, with multiple versions managed using tags.
+- Allows users to upload (push) and download (pull) Docker images.
+
+## Components
+- Docker Image: A Docker Image is a template (blueprint) used to create Docker Containers.
+- Docker Images Registry: A Docker Registry is a storage system where Docker Images are pushed (uploaded) and pulled (downloaded).
+- Docker Hub: It is the official cloud-based Docker Registry service provided by Docker Inc. It is the default registry where Docker looks for images when you run docker pull or docker run without specifying a registry.
+- Docker Login: It is a Docker CLI command used to authenticate your local Docker client with a Docker Registry (like Docker Hub, AWS ECR, GCP GCR, Azure ACR, or a private registry). It allows you to push (upload) and pull (download) Docker images securely by verifying your username and password or access token.
+- Authentication of Dockerhub: Authentication in Docker Hub ensures secure pushing and pulling of Docker images, especially when dealing with private repositories and DevOps pipelines.
+
+## Different Types of Docker Registries
+Type	Registry	Description
+Cloud-Hosted / Public	Docker Hub	Default and largest public registry with millions of official and community images.
+Cloud-Hosted / Public	Amazon ECR	AWS-managed registry integrated with the AWS ecosystem.
+Cloud-Hosted / Public	Google Artifact Registry (GAR)	Google Cloud's recommended registry for container images and other artifacts.
+Cloud-Hosted / Public	Azure Container Registry (ACR)	Microsoft's managed registry service for Azure.
+Cloud-Hosted / Public	GitLab Container Registry	Integrated with the GitLab CI/CD platform.
+Private / Self-Hosted	Docker Registry	Official open-source registry:2 image for running a basic private registry.
+Private / Self-Hosted	Harbor	Enterprise-grade open-source registry with features such as vulnerability scanning and role-based access control.
+
+## Basic commands for Docker registry
+The following are the basic commands for Docker registry:
+1. Starting your registry
+- This command effectively starts a Docker registry on your local machine or server, accessible via port 5000.
+- It instructs Docker to start a registry named registry:2 in detached mode with the name registry. Map the registry's port 5000 to a local port 5000 and restart it immediately if it dies.
+
+```
+docker run -d -p 5000:5000 --restart=always --name registry registry:2
+```
+2. Pulling some images from the hub
+
+```
+docker pull ubuntu:latest
+```
+3. Tagging that image and point to your registry
+
+```
+docker image tag ubuntu:latest localhost:5000/gfg-image
+```
+4. Pushing the image
+
+```
+docker push localhost:5000/gfg-image
+```
+5. Pulling that image back
+
+```
+docker pull localhost:5000/gfg-image
+```
+6. Stop the registry
+
+```
+docker container stop registry
+```
+7. Stop the registry and remove the data
+
+```
+docker container stop registry && docker container rm -v registry
+```
+
+## Docker Registry Working
+A Docker Registry stores and distributes Docker images. Users can push images to the registry and pull them when needed.
+- Docker Registry provides a storage and distribution platform for Docker images.
+- Users can upload their Docker images to the registry, and these images can be tagged with a version number and a name.
+- Other users can then search for and download these images from the registry.
+- Docker Registry can be self-hosted or used as a cloud-based service.
+- Docker Registry helps the administrators to implement access controls and permissions ensuring only authorized users and systems.
+- Docker Registry facilitates with seamless integration through Continuous Integration/Continuous Deployment (CI/CD) pipelines.
+
+## Importance of Registries
+Docker registries are a cornerstone of modern software development for several key reasons:
+- Stores images built by CI for deployment by CD.
+- Provides a shared location for Docker images.
+- Uses tags to manage image versions and rollbacks.
+- Controls access to private images.
+- Scans images for potential vulnerabilities.
+- Makes images available across different environments.

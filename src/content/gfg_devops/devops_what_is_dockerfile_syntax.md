@@ -1,0 +1,139 @@
+# What is Dockerfile Syntax?
+
+Source: https://www.geeksforgeeks.org/devops/what-is-dockerfile-syntax/
+
+A Dockerfile is a plain-text file containing a sequence of instructions that Docker uses to build an image. These instructions are processed in order, creating a reproducible image that can later be used to run containers.
+
+### General Syntax Rules
+- Instruction first: Each line starts with an instruction such as FROM, RUN, COPY, or CMD. Instructions are conventionally written in uppercase, although Docker treats them as case-insensitive.
+- Arguments follow: Arguments or values are written on the same line after the instruction.
+- Comments: Lines beginning with # are treated as comments and ignored by the Docker builder.
+- Layering: Many Dockerfile instructions create image layers. The order of instructions affects build caching, performance, and image size.
+- Build context: Docker sends the specified build context to the builder. A .dockerignore file can exclude unnecessary files, reducing the amount of data sent and improving build efficiency.
+
+## Dockerfile Instructions
+Dockerfile instructions are the ordered commands written in a Dockerfile that tell the Docker builder how to assemble an image and how the resulting container should run.
+Instruction	Purpose
+FROM	Specifies the base image for the Docker image.
+RUN	Executes commands while building the image.
+ENV	Sets environment variables.
+ENTRYPOINT	Defines the main command that runs when the container starts.
+CMD	Specifies the default command or arguments for the container.
+EXPOSE	Documents the port on which the container listens.
+VOLUME	Creates a mount point for persistent or shared data.
+WORKDIR	Sets the working directory for subsequent instructions.
+USER	Specifies the user that runs the container process.
+COPY	Copies files and directories from the build context into the image.
+#	Adds comments that are ignored by Docker.
+
+### 1. FROM
+A FROM statement defines which image to download and start from. It must be the first command in your Dockerfile. A Dockerfile can have multiple FROM statements which means the Dockerfile produces more than one image.
+Example:
+
+```
+FROM java: 8
+```
+
+### 2. RUN
+The RUN instruction executes commands during the Docker image build process and saves the result in a new image layer. It is mainly used to install packages, create directories, or configure the environment.
+Example:
+
+```
+RUN unzip install.zip /opt/install 
+```
+
+```
+RUN echo hello  
+```
+
+### 3. ENV
+The ENV statement sets environment variables both during the build and when running the resulting container. It can be used in the Dockerfile and any scripts it calls. These variables are persistent in the container and can be referred to at any moment.
+Example:
+
+```
+ENV URL_POST=production.example-gfg.com
+```
+
+### 4. ENTRYPOINT
+It specifies the starting of the expression to use when starting your container. Simply ENTRYPOINT specifies the start of the command to run. If your container acts as a command-line program, you can use ENTRYPOINT.
+Example:
+
+```
+ENTRYPOINT ["/start.sh"]
+```
+
+### 5. CMD
+The CMD instruction specifies the default command to run when a container starts. It can also provide default arguments for the ENTRYPOINT instruction.
+Example:
+
+```
+CMD ["program-foreground"]
+CMD ["executable", "program1", "program2"]
+```
+Note: If you have both ENVIRONMENT and CMD, they are combined together.
+
+### 6. EXPOSE
+The EXPOSE instruction informs Docker that the container listens on a specific network port at runtime. By default, the protocol is TCP, but UDP can also be specified.
+Example:
+
+```
+EXPOSE 5000
+EXPOSE 8080/udp
+```
+
+### 6. VOLUME
+The VOLUME instruction creates a mount point inside the container and is used for persistent or shared data storage.
+Example:
+
+```
+1. If you define a single argument, it creates a volume inside a container.
+     VOLUME ["/shared-data"]
+
+2. If you define multiple arguments, it creates multiple volumes inside the container.
+     VOLUME ["/volume1", "/volume2"]
+```
+
+### 7. WORKDIR
+As the name suggests, WORKDIR sets the directory that the container starts in. Its main purpose is to set the working directory for all future Dockerfile commands.
+Example:
+
+```
+WORKDIR /directory-name
+```
+
+### 8. USER
+It sets which user's container will run as. This can be useful if you have shared network directories involved that assume a fixed username or a fixed user number.
+Example:
+
+```
+USER geeksforgeeks
+USER 4000
+```
+
+## How Does a Dockerfile Look?
+A Dockerfile contains a sequence of instructions that Docker uses to build an image. Each instruction defines a specific part of the image configuration.
+
+```
+FROM ubuntu:22.04
+
+ENV APP_ENV=production
+ 
+WORKDIR  /app
+  
+RUN apt-get update && apt-get install -y curl
+  
+COPY . .
+  
+VOLUME ["/app/data"] 
+
+EXPOSE 8080
+  
+CMD ["echo", "Dockerfile example"]
+```
+
+## Best practices for writing Dockerfiles
+- As a base image, use official images. And whenever it is possible, use Alpine images as a base image.
+- Don't copy unnecessary files and folders or install/use unnecessary packages of software.
+- Running a container process as root is not recommended. As a non-root user, launch the application container process.
+- Reduce the number of image layers as much as you can.
+- Wherever possible, try to use multi-stage Docker files to reduce the size of the image.

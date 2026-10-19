@@ -1,0 +1,59 @@
+# Availability in System Design
+
+Source: https://www.geeksforgeeks.org/system-design/availability-in-system-design/
+
+Availability refers to how often a system or service is operational and accessible to users when required. It measures the ability of the system to provide its intended service over a given period, even when individual components may experience failures.
+- High Availability: Uses redundancy, replication, and failover mechanisms to keep services accessible even when individual components fail.
+- Quick Recovery: Recovery mechanisms help restore services quickly after failures, reducing downtime and maintaining availability.
+Example: Cloud platforms often use multiple servers and data centers so that if one server fails, another can continue serving users without interruption.
+
+## Availability Measurement
+Availability is usually measured as the percentage of time a system remains operational and accessible to users during a given period. It is calculated by comparing the system’s uptime to the total time it is expected to run.
+Availability (%) = (Uptime / (Uptime + Downtime)) x 100
+- Uptime: The total time a system is operational and functioning as expected.
+- Downtime: The total time the system is unavailable due to failures, maintenance, or other issues.
+- Higher Percentage = Better Availability: Systems aim for high availability such as 99%, 99.9%, or 99.99% uptime.
+- Measured Over Time: Availability is measured over a defined period, such as a month or year, to evaluate how consistently the service remains accessible.
+Example: If a system has 99.9% availability in a year:
+- Total time in a year: 365 × 24 × 60 = 525,600 minutes
+- Downtime allowed: 0.1% × 525,600 = 525.6 minutes (~8.76 hours).
+
+## Importance
+Availability is important because it ensures that systems and services remain accessible and reliable for users and businesses.
+- User Experience: Availability ensures users can access the system and its services whenever needed. Frequent downtime can frustrate users and reduce overall satisfaction.
+- Business Continuity: High availability helps maintain continuous operations and prevents financial loss, reputational damage, and legal issues caused by system outages.
+- Service Level Agreements (SLAs): Organizations commit to specific uptime targets through SLAs, and failure to meet them can lead to penalties or contractual consequences.
+- Competitive Advantage: Systems with higher availability are more reliable and can attract and retain more users, especially in industries where uptime is critical.
+- Disaster Recovery: Disaster recovery provides processes and infrastructure for restoring services after major failures or disasters. It supports availability by reducing the duration and impact of prolonged outages.
+- Regulatory Compliance: Many industries require a minimum level of system availability, and failing to meet these standards can result in fines or legal actions.
+
+## Ways to Achieve High Availability
+High availability is essential for systems that must run continuously, as downtime can lead to financial loss, reputational damage, or safety risks, especially in critical domains like cloud, healthcare, banking, and e-commerce.
+- Redundancy: Use redundant servers or components so that, in the event of a failure, another can take over without any problems. Data centers, networking, and hardware redundancy are a few examples of this.
+- Load Balancing: Distributes incoming requests across multiple servers or resources to prevent overload and improve performance and availability.
+- Failover mechanisms: Implementing automated processes to detect failures and switch to redundant systems without manual intervention.
+- Disaster Recovery: Having a comprehensive plan in place to recover the system in case of a catastrophic event that affects the primary infrastructure.
+- Monitoring and Alerting: Putting in place reliable monitoring systems that can identify problems instantly and alert administrators so they can act quickly.
+- Performance optimization: lowering the possibility of bottlenecks and breakdowns by making sure the system is built and adjusted to efficiently manage the expected load.
+- Scalability: Designing the system to scale easily by adding more resources when needed to accommodate increased demand.
+
+## System Availability Vs Asset Reliability
+System availability and asset reliability are related concepts in system design, but they focus on different aspects of system performance and stability.
+- System Availability: Refers to the percentage of time the entire system is operational and accessible to users. It considers factors such as network issues, dependencies, failover mechanisms, and recovery time, not just component reliability.
+- Asset Reliability: Refers to the ability of individual components (such as servers, databases, or hardware) to perform their tasks without failure. Higher reliability of individual assets reduces the chances of system failures.
+
+### Difference
+- System Availability focuses on the overall system uptime and user accessibility.
+- Asset Reliability focuses on the performance and failure rate of individual components within the system.
+Example: Even if a single server fails (asset failure), the system can still remain available if there are backup servers or redundancy mechanisms in place.
+
+## Availability Vs Fault Tolerance
+Below are the differences between the availability and fault tolerance:
+Availability	Fault Tolerance
+Measures how often a system is operational and accessible to users.	Measures the system’s ability to continue working even when failures occur.
+Focuses on maximizing uptime and minimizing downtime.	Focuses on handling failures without stopping the system.
+Usually measured as uptime percentage (e.g., 99.9%).	Not measured by a single metric; fault tolerance is evaluated by service continuity during failures. MTBF and MTTR help measure reliability and recovery.
+Uses strategies like load balancing, failover, and redundancy.	Uses redundant components, replication, and graceful degradation.
+Ensures consistent access and better user experience.	Ensures the system keeps functioning during failures.
+Used across many systems, including web services, cloud platforms, banking, healthcare, e-commerce, and other systems where service availability is important.	Used where continued operation during failures is critical, including cloud platforms, databases, telecommunications, healthcare, and aerospace.
+May include redundancy but some failure impact can still occur.	Requires higher redundancy to avoid system-wide failure.

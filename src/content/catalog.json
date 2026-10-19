@@ -1,0 +1,949 @@
+[
+  {
+    "id": 1,
+    "title": "DevOps Foundations",
+    "level": "EASY",
+    "topics": [
+      {
+        "id": "1.1",
+        "title": "DevOps Tutorial",
+        "summary": "DevOps is a practice that combines development and operations to build, test and release software faster and more reliably. It focuses on...",
+        "url": "https://www.geeksforgeeks.org/devops/devops-tutorial/",
+        "file": "devops_devops_tutorial.md",
+        "minutes": 3
+      },
+      {
+        "id": "1.2",
+        "title": "Introduction to DevOps",
+        "summary": "DevOps is a modern approach to software development that brings development and operations teams together to deliver applications faster and...",
+        "url": "https://www.geeksforgeeks.org/devops/introduction-to-devops/",
+        "file": "devops_introduction_to_devops.md",
+        "minutes": 4
+      },
+      {
+        "id": "1.3",
+        "title": "DevOps Prerequisites - Things to Learn Before",
+        "summary": "DevOps is changing the way software is built, tested, and delivered. It helps teams work faster, fix problems sooner, and release updates...",
+        "url": "https://www.geeksforgeeks.org/devops/devops-prerequisites/",
+        "file": "devops_devops_prerequisites.md",
+        "minutes": 5
+      },
+      {
+        "id": "1.4",
+        "title": "DevOps Lifecycle",
+        "summary": "The\u00a0DevOps Lifecycle\u00a0is a continuous, looping process that bridges the gap between software development (Dev) and IT operations (Ops). Unlike...",
+        "url": "https://www.geeksforgeeks.org/devops/devops-lifecycle/",
+        "file": "devops_devops_lifecycle.md",
+        "minutes": 6
+      },
+      {
+        "id": "1.5",
+        "title": "The Evolution of DevOps - 3 Major Trends for Future",
+        "summary": "DevOps is a software engineering culture and practice that aims to unify software development and operations. It is an approach to software...",
+        "url": "https://www.geeksforgeeks.org/devops/the-evolution-of-devops-major-trends-for-future/",
+        "file": "devops_the_evolution_of_devops_major_trends_for_future.md",
+        "minutes": 6
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Linux Fundamentals",
+    "level": "EASY",
+    "topics": [
+      {
+        "id": "2.1",
+        "title": "Introduction to Linux",
+        "summary": "Linux is based on the UNIX operating system, a multi-user and multitasking platform developed in the 1970s at AT&T Bell Labs that became the...",
+        "url": "https://www.geeksforgeeks.org/linux-unix/introduction-to-linux-operating-system/",
+        "file": "linux_unix_introduction_to_linux_operating_system.md",
+        "minutes": 2
+      },
+      {
+        "id": "2.2",
+        "title": "Linux Tutorial",
+        "summary": "Linux is one of the most widely used open-source operating systems. It's fast, secure, stable, and powers everything from smartphones and...",
+        "url": "https://www.geeksforgeeks.org/linux-unix/linux-tutorial/",
+        "file": "linux_unix_linux_tutorial.md",
+        "minutes": 4
+      },
+      {
+        "id": "2.3",
+        "title": "Linux command in DevOps",
+        "summary": "Linux commands are the foundation of DevOps operations used for system administration, automation and troubleshooting. They help engineers...",
+        "url": "https://www.geeksforgeeks.org/linux-unix/linux-command-in-devops/",
+        "file": "linux_unix_linux_command_in_devops.md",
+        "minutes": 8
+      },
+      {
+        "id": "2.4",
+        "title": "File Management in Linux",
+        "summary": "File management in Linux involves handling files and directories through various operations such as creation, modification, organization and...",
+        "url": "https://www.geeksforgeeks.org/linux-unix/file-management-in-linux/",
+        "file": "linux_unix_file_management_in_linux.md",
+        "minutes": 3
+      },
+      {
+        "id": "2.5",
+        "title": "Linux Permissions",
+        "summary": "Linux file permissions form the foundation of the system\u2019s security model. They define who can read, write, or execute files and directories.",
+        "url": "https://www.geeksforgeeks.org/linux-unix/set-file-permissions-linux/",
+        "file": "linux_unix_set_file_permissions_linux.md",
+        "minutes": 6
+      },
+      {
+        "id": "2.6",
+        "title": "SSH Command in Linux",
+        "summary": "SSH (Secure Shell) is a secure communication protocol that allows a user to access and control a remote computer over a network.",
+        "url": "https://www.geeksforgeeks.org/linux-unix/ssh-command-in-linux-with-examples/",
+        "file": "linux_unix_ssh_command_in_linux_with_examples.md",
+        "minutes": 3
+      },
+      {
+        "id": "2.7",
+        "title": "System Information and Monitoring in Linux",
+        "summary": "Monitoring a Linux system means\u00a0checking how well your computer\u2019s hardware and software are working. It helps track performance, find...",
+        "url": "https://www.geeksforgeeks.org/ethical-hacking/system-information-and-monitoring-in-linux/",
+        "file": "ethical_hacking_system_information_and_monitoring_in_linux.md",
+        "minutes": 6
+      },
+      {
+        "id": "2.8",
+        "title": "Add a Linux Firewall ( ufw or iptables)",
+        "summary": "UFW (Uncomplicated Firewall) simplifies complex iptables commands into easy-to-use syntax. It is ideal for quickly securing a system while...",
+        "url": "https://www.geeksforgeeks.org/ethical-hacking/add-a-linux-firewall-ufw-or-iptables/",
+        "file": "ethical_hacking_add_a_linux_firewall_ufw_or_iptables.md",
+        "minutes": 3
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Networking Essentials",
+    "level": "EASY TO INTERMEDIATE",
+    "topics": [
+      {
+        "id": "3.1",
+        "title": "How to List Network Interfaces in Linux?",
+        "summary": "Below we have listed all 10 methods through which we can list network interfaces on Linux OS. You might need to list your interfaces for...",
+        "url": "https://www.geeksforgeeks.org/linux-unix/how-to-list-network-interfaces-in-linux/",
+        "file": "linux_unix_how_to_list_network_interfaces_in_linux.md",
+        "minutes": 5
+      },
+      {
+        "id": "3.2",
+        "title": "Network Devices",
+        "summary": "Network Devices are the physical appliances required for communication and interaction between computers on a computer network.",
+        "url": "https://www.geeksforgeeks.org/computer-networks/network-devices-hub-repeater-bridge-switch-router-gateways/",
+        "file": "computer_networks_network_devices_hub_repeater_bridge_switch_router_gateways.md",
+        "minutes": 3
+      },
+      {
+        "id": "3.3",
+        "title": "route Command in Linux with Examples",
+        "summary": "This command helps you view, add, or delete routes for specific destinations, whether to a single host or an entire network. You can define...",
+        "url": "https://www.geeksforgeeks.org/linux-unix/route-command-in-linux-with-examples/",
+        "file": "linux_unix_route_command_in_linux_with_examples.md",
+        "minutes": 5
+      },
+      {
+        "id": "3.4",
+        "title": "Ping Command in Linux",
+        "summary": "The ping command is a network utility used to test the reachability of a host and measure the time it takes for packets to travel to and from...",
+        "url": "https://www.geeksforgeeks.org/linux-unix/ping-command-in-linux-with-examples/",
+        "file": "linux_unix_ping_command_in_linux_with_examples.md",
+        "minutes": 4
+      },
+      {
+        "id": "3.5",
+        "title": "Layers of OSI Model",
+        "summary": "The OSI (Open Systems Interconnection) Model is a conceptual framework created by the International Organization for Standardization (ISO) to...",
+        "url": "https://www.geeksforgeeks.org/computer-networks/open-systems-interconnection-model-osi/",
+        "file": "computer_networks_open_systems_interconnection_model_osi.md",
+        "minutes": 6
+      },
+      {
+        "id": "3.6",
+        "title": "Domain Name System (DNS)",
+        "summary": "Translation of human-readable domain names into IP addresses enables computers to communicate over the internet, a function performed by the...",
+        "url": "https://www.geeksforgeeks.org/computer-networks/domain-name-system-dns-in-application-layer/",
+        "file": "computer_networks_domain_name_system_dns_in_application_layer.md",
+        "minutes": 5
+      },
+      {
+        "id": "3.7",
+        "title": "TCP/IP Model",
+        "summary": "The TCP/IP model is a layered networking framework that explains how data is communicated between devices over a network using standardized...",
+        "url": "https://www.geeksforgeeks.org/computer-networks/tcp-ip-model/",
+        "file": "computer_networks_tcp_ip_model.md",
+        "minutes": 5
+      },
+      {
+        "id": "3.8",
+        "title": "Types of Network Firewall",
+        "summary": "A network firewall is a security system that protects private networks from unauthorized access. It monitors and controls incoming and...",
+        "url": "https://www.geeksforgeeks.org/computer-networks/types-of-network-firewall/",
+        "file": "computer_networks_types_of_network_firewall.md",
+        "minutes": 3
+      },
+      {
+        "id": "3.9",
+        "title": "Types of Network Protocols",
+        "summary": "Network protocol is a collection of rules that governs how data is transmitted, received, and interpreted between devices on a network,...",
+        "url": "https://www.geeksforgeeks.org/computer-networks/types-of-network-protocols-and-their-uses/",
+        "file": "computer_networks_types_of_network_protocols_and_their_uses.md",
+        "minutes": 9
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Architecture & Reliability",
+    "level": "INTERMEDIATE",
+    "topics": [
+      {
+        "id": "4.1",
+        "title": "Monolithic Architecture",
+        "summary": "Monolithic architecture is a software design approach in which the major components of an application, such as the user interface, business...",
+        "url": "https://www.geeksforgeeks.org/system-design/monolithic-architecture-system-design/",
+        "file": "system_design_monolithic_architecture_system_design.md",
+        "minutes": 4
+      },
+      {
+        "id": "4.2",
+        "title": "Microservices",
+        "summary": "Microservices is an architecture where an application is divided into small, independent services that communicate over a network. Each...",
+        "url": "https://www.geeksforgeeks.org/system-design/microservices/",
+        "file": "system_design_microservices.md",
+        "minutes": 5
+      },
+      {
+        "id": "4.3",
+        "title": "Event-Driven Architecture (EDA)",
+        "summary": "Event-Driven Architecture (EDA) is a software design approach where system components communicate by producing and responding to events, such...",
+        "url": "https://www.geeksforgeeks.org/system-design/event-driven-architecture-system-design/",
+        "file": "system_design_event_driven_architecture_system_design.md",
+        "minutes": 5
+      },
+      {
+        "id": "4.4",
+        "title": "Scalability in System Design",
+        "summary": "Scalability refers to a system's ability to handle increasing workloads, users, or data by adding or adjusting resources while maintaining...",
+        "url": "https://www.geeksforgeeks.org/system-design/what-is-scalability/",
+        "file": "system_design_what_is_scalability.md",
+        "minutes": 3
+      },
+      {
+        "id": "4.5",
+        "title": "Availability in System Design",
+        "summary": "Availability refers to how often a system or service is operational and accessible to users when required. It measures the ability of the...",
+        "url": "https://www.geeksforgeeks.org/system-design/availability-in-system-design/",
+        "file": "system_design_availability_in_system_design.md",
+        "minutes": 4
+      },
+      {
+        "id": "4.6",
+        "title": "CAP Theorem in System Design",
+        "summary": "According to the CAP theorem, a distributed system cannot simultaneously guarantee Consistency, Availability, and Partition Tolerance when a...",
+        "url": "https://www.geeksforgeeks.org/system-design/cap-theorem-in-system-design/",
+        "file": "system_design_cap_theorem_in_system_design.md",
+        "minutes": 5
+      },
+      {
+        "id": "4.7",
+        "title": "Load Balancer",
+        "summary": "A load balancer is a networking device or software application that distributes and balances the incoming traffic among the servers to...",
+        "url": "https://www.geeksforgeeks.org/system-design/what-is-load-balancer-system-design/",
+        "file": "system_design_what_is_load_balancer_system_design.md",
+        "minutes": 7
+      },
+      {
+        "id": "4.8",
+        "title": "Difference between Forward Proxy and Reverse Proxy",
+        "summary": "Proxies act as intermediaries between clients and servers and help manage how requests and responses flow through a network. Forward proxies...",
+        "url": "https://www.geeksforgeeks.org/system-design/difference-between-forward-proxy-and-reverse-proxy/",
+        "file": "system_design_difference_between_forward_proxy_and_reverse_proxy.md",
+        "minutes": 3
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Git & Source Control",
+    "level": "EASY TO INTERMEDIATE",
+    "topics": [
+      {
+        "id": "5.1",
+        "title": "Version Control Systems",
+        "summary": "A Version Control System (VCS) is a tool used in software development and collaborative projects to track and manage changes to source code.",
+        "url": "https://www.geeksforgeeks.org/git/version-control-systems/",
+        "file": "git_version_control_systems.md",
+        "minutes": 4
+      },
+      {
+        "id": "5.2",
+        "title": "Git Introduction",
+        "summary": "Git is a distributed version control system (VCS) used to track changes in source code during software development. It helps developers...",
+        "url": "https://www.geeksforgeeks.org/git/git-introduction/",
+        "file": "git_git_introduction.md",
+        "minutes": 4
+      },
+      {
+        "id": "5.3",
+        "title": "How Git Works Under the Hood?",
+        "summary": "Git is a distributed version control system that manages code changes and collaboration, and understanding how Git commands work internally...",
+        "url": "https://www.geeksforgeeks.org/git/how-git-works-under-the-hood/",
+        "file": "git_how_git_works_under_the_hood.md",
+        "minutes": 5
+      },
+      {
+        "id": "5.4",
+        "title": "Introduction to Github",
+        "summary": "GitHub is a web-based platform built around Git that enables version control, collaboration, and project management for software development...",
+        "url": "https://www.geeksforgeeks.org/git/introduction-to-github/",
+        "file": "git_introduction_to_github.md",
+        "minutes": 4
+      },
+      {
+        "id": "5.5",
+        "title": "Essential Git Commands for Beginners and Developers",
+        "summary": "Git is the industry standard for version control. While there are hundreds of commands, you will likely spend 90% of your time using just a...",
+        "url": "https://www.geeksforgeeks.org/git/useful-github-commands/",
+        "file": "git_useful_github_commands.md",
+        "minutes": 4
+      },
+      {
+        "id": "5.6",
+        "title": "Useful Git Commands and Basic Concepts",
+        "summary": "Useful Git commands and basic concepts help in managing repositories, tracking changes, and handling version control efficiently in...",
+        "url": "https://www.geeksforgeeks.org/git/useful-git-commands-and-basic-concepts/",
+        "file": "git_useful_git_commands_and_basic_concepts.md",
+        "minutes": 3
+      },
+      {
+        "id": "5.7",
+        "title": "Basic Git Commands with Examples",
+        "summary": "Git is a powerful version control system that helps developers track code changes and collaborate efficiently on shared projects.",
+        "url": "https://www.geeksforgeeks.org/git/basic-git-commands-with-examples/",
+        "file": "git_basic_git_commands_with_examples.md",
+        "minutes": 3
+      },
+      {
+        "id": "5.8",
+        "title": "Branching Strategies in Git",
+        "summary": "A branching strategy defines how developers create, manage and merge branches in a version control system like Git to ensure smooth...",
+        "url": "https://www.geeksforgeeks.org/git/branching-strategies-in-git/",
+        "file": "git_branching_strategies_in_git.md",
+        "minutes": 4
+      },
+      {
+        "id": "5.9",
+        "title": "Merge Strategies in Git",
+        "summary": "In Git, merging combines changes from one branch into another. If conflicts occur, Git requires them to be resolved before the merge is...",
+        "url": "https://www.geeksforgeeks.org/git/merge-strategies-in-git/",
+        "file": "git_merge_strategies_in_git.md",
+        "minutes": 4
+      },
+      {
+        "id": "5.10",
+        "title": "Bitbucket vs GitHub vs GitLab",
+        "summary": "- Bitbucket was launched in 2008 initially supporting Mercurial Projects. In 2010, it was acquired by Atlassian and from 2011 it also started...",
+        "url": "https://www.geeksforgeeks.org/git/bitbucket-vs-github-vs-gitlab/",
+        "file": "git_bitbucket_vs_github_vs_gitlab.md",
+        "minutes": 4
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Shell Scripting & YAML",
+    "level": "INTERMEDIATE",
+    "topics": [
+      {
+        "id": "6.1",
+        "title": "Introduction to Linux Shell and Shell Scripting",
+        "summary": "In Linux systems, users communicate with the operating system through a shell, which interprets and executes commands entered in a terminal....",
+        "url": "https://www.geeksforgeeks.org/linux-unix/introduction-linux-shell-shell-scripting/",
+        "file": "linux_unix_introduction_linux_shell_shell_scripting.md",
+        "minutes": 7
+      },
+      {
+        "id": "6.2",
+        "title": "Using Shebang in Linux",
+        "summary": "The shebang is an interpreter directive used in Unix-like operating systems. It is a character sequence,\u00a0#!, that constitutes the first line...",
+        "url": "https://www.geeksforgeeks.org/linux-unix/using-shebang-in-linux/",
+        "file": "linux_unix_using_shebang_in_linux.md",
+        "minutes": 10
+      },
+      {
+        "id": "6.3",
+        "title": "Writing and executing shell scripts",
+        "summary": "A\u00a0shell script\u00a0is a collection of commands written in a scripting language that is interpreted by a\u00a0shell\u00a0in an operating system such as...",
+        "url": "https://www.geeksforgeeks.org/linux-unix/how-to-create-a-shell-script-in-linux/",
+        "file": "linux_unix_how_to_create_a_shell_script_in_linux.md",
+        "minutes": 2
+      },
+      {
+        "id": "6.4",
+        "title": "Conditional Statements | Shell Script",
+        "summary": "Conditional statements, or\u00a0if-then\u00a0blocks, are the most important part of any script. They are the \"decision-makers\" that allow your script...",
+        "url": "https://www.geeksforgeeks.org/linux-unix/conditional-statements-shell-script/",
+        "file": "linux_unix_conditional_statements_shell_script.md",
+        "minutes": 3
+      },
+      {
+        "id": "6.5",
+        "title": "Looping Statements | Shell Script",
+        "summary": "Loops are a fundamental part of programming, and shell scripting is no exception.\u00a0They allow you to automate repetitive tasks by running a...",
+        "url": "https://www.geeksforgeeks.org/linux-unix/looping-statements-shell-script/",
+        "file": "linux_unix_looping_statements_shell_script.md",
+        "minutes": 5
+      },
+      {
+        "id": "6.6",
+        "title": "Scheduling Tasks Using at Command in Linux",
+        "summary": "The\u00a0at\u00a0command is a standard Linux utility for scheduling a command or script to run\u00a0one time\u00a0at a specified future time. It's the perfect...",
+        "url": "https://www.geeksforgeeks.org/linux-unix/how-to-schedule-tasks-using-at-command-in-linux/",
+        "file": "linux_unix_how_to_schedule_tasks_using_at_command_in_linux.md",
+        "minutes": 4
+      },
+      {
+        "id": "6.7",
+        "title": "Automating Linux System Backups with Bash",
+        "summary": "A regular, automated backup is the single most important task for protecting your data. A simple Bash script can automate this entire...",
+        "url": "https://www.geeksforgeeks.org/devops/daily-system-backup-script-with-versioning-auto-cleanup/",
+        "file": "devops_daily_system_backup_script_with_versioning_auto_cleanup.md",
+        "minutes": 4
+      },
+      {
+        "id": "6.8",
+        "title": "YAML Introduction",
+        "summary": "YAML (YAML Ain\u2019t Markup Language) is a human-readable data serialization language used to store and exchange data. It is commonly used for...",
+        "url": "https://www.geeksforgeeks.org/linux-unix/what-type-of-language-is-yaml/",
+        "file": "linux_unix_what_type_of_language_is_yaml.md",
+        "minutes": 5
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "CI/CD & Jenkins",
+    "level": "INTERMEDIATE",
+    "topics": [
+      {
+        "id": "7.1",
+        "title": "Introduction to CI/CD",
+        "summary": "CI/CD (Continuous Integration and Continuous Delivery/Deployment) is a modern software development practice that automates the process of...",
+        "url": "https://www.geeksforgeeks.org/devops/what-is-ci-cd/",
+        "file": "devops_what_is_ci_cd.md",
+        "minutes": 2
+      },
+      {
+        "id": "7.2",
+        "title": "Introduction to Jenkins",
+        "summary": "Jenkins is an open-source automation server that streamlines the software development lifecycle by automating build, test, and deployment...",
+        "url": "https://www.geeksforgeeks.org/devops/what-is-jenkins/",
+        "file": "devops_what_is_jenkins.md",
+        "minutes": 4
+      },
+      {
+        "id": "7.3",
+        "title": "Installation of Jenkins in Ubuntu",
+        "summary": "Jenkins is an open-source automation server used to automate software development processes such as building, testing, and deploying...",
+        "url": "https://www.geeksforgeeks.org/devops/install-jenkins-in-ubuntu/",
+        "file": "devops_install_jenkins_in_ubuntu.md",
+        "minutes": 2
+      },
+      {
+        "id": "7.4",
+        "title": "Working with Jenkins Plugins",
+        "summary": "Jenkins plugins are essential for enhancing the functionality of the Jenkins CI/CD tool. They serve as the building blocks that allow Jenkins...",
+        "url": "https://www.geeksforgeeks.org/devops/working-with-jenkins-plugins/",
+        "file": "devops_working_with_jenkins_plugins.md",
+        "minutes": 4
+      },
+      {
+        "id": "7.5",
+        "title": "CI-CD Pipeline in Jenkins",
+        "summary": "A CI/CD pipeline in Jenkins automates the process of building, testing, and deploying code. It helps developers integrate changes and deploy...",
+        "url": "https://www.geeksforgeeks.org/devops/how-to-make-a-ci-cd-pipeline-in-jenkins/",
+        "file": "devops_how_to_make_a_ci_cd_pipeline_in_jenkins.md",
+        "minutes": 4
+      },
+      {
+        "id": "7.6",
+        "title": "Deploying An Application Using Jenkinsfile",
+        "summary": "Deploying an application with a Jenkinsfile automates building, testing, and deploying the app. It ensures consistent and repeatable...",
+        "url": "https://www.geeksforgeeks.org/devops/deploying-an-application-using-jenkinsfile/",
+        "file": "devops_deploying_an_application_using_jenkinsfile.md",
+        "minutes": 4
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Docker & Containers",
+    "level": "INTERMEDIATE",
+    "topics": [
+      {
+        "id": "8.1",
+        "title": "Docker Tutorial",
+        "summary": "Docker is a tool that simplifies the process of developing, packaging, and deploying applications. It solves the\u00a0\u201cworks on my...",
+        "url": "https://www.geeksforgeeks.org/devops/docker-tutorial/",
+        "file": "devops_docker_tutorial.md",
+        "minutes": 4
+      },
+      {
+        "id": "8.2",
+        "title": "What is Docker?",
+        "summary": "Docker is an\u00a0OS\u2011level virtualization\u00a0(or containerization) platform, which allows applications to share the\u00a0host OS kernel\u00a0instead of running...",
+        "url": "https://www.geeksforgeeks.org/devops/introduction-to-docker/",
+        "file": "devops_introduction_to_docker.md",
+        "minutes": 5
+      },
+      {
+        "id": "8.3",
+        "title": "Architecture of Docker",
+        "summary": "Docker uses a client\u2013server architecture. The Docker client talks to the Docker Daemon, which builds, runs, and manages containers. They...",
+        "url": "https://www.geeksforgeeks.org/devops/architecture-of-docker/",
+        "file": "devops_architecture_of_docker.md",
+        "minutes": 5
+      },
+      {
+        "id": "8.4",
+        "title": "Dockerfile",
+        "summary": "A Dockerfile is a text file that contains instructions for building a Docker image. It defines the base image, application files,...",
+        "url": "https://www.geeksforgeeks.org/cloud-computing/what-is-dockerfile/",
+        "file": "cloud_computing_what_is_dockerfile.md",
+        "minutes": 4
+      },
+      {
+        "id": "8.5",
+        "title": "What is Docker Image",
+        "summary": "A Docker Image is a lightweight, standalone and executable software package that includes everything needed to run an application: the code,...",
+        "url": "https://www.geeksforgeeks.org/devops/what-is-docker-image/",
+        "file": "devops_what_is_docker_image.md",
+        "minutes": 8
+      },
+      {
+        "id": "8.6",
+        "title": "Docker Commands",
+        "summary": "Docker originally was used with straightforward, individual commands for each task. Over time, as more features were added, this approach...",
+        "url": "https://www.geeksforgeeks.org/devops/docker-instruction-commands/",
+        "file": "devops_docker_instruction_commands.md",
+        "minutes": 5
+      },
+      {
+        "id": "8.7",
+        "title": "Docker Registry",
+        "summary": "A Docker Registry is a centralized system for storing, managing, and distributing Docker images. It helps streamline the deployment and...",
+        "url": "https://www.geeksforgeeks.org/devops/what-is-docker-registry/",
+        "file": "devops_what_is_docker_registry.md",
+        "minutes": 3
+      },
+      {
+        "id": "8.8",
+        "title": "What Is Docker Volume?",
+        "summary": "Docker Volumes provide persistent storage for containers, allowing data to remain available even after a container is stopped, removed, or...",
+        "url": "https://www.geeksforgeeks.org/devops/what-is-docker-volume/",
+        "file": "devops_what_is_docker_volume.md",
+        "minutes": 8
+      },
+      {
+        "id": "8.9",
+        "title": "Docker - Managing Ports",
+        "summary": "Docker containers run in isolated network namespaces. By default, they are unreachable from the host or the internet. To make a service...",
+        "url": "https://www.geeksforgeeks.org/devops/docker-managing-ports/",
+        "file": "devops_docker_managing_ports.md",
+        "minutes": 3
+      },
+      {
+        "id": "8.10",
+        "title": "What is Dockerfile Syntax?",
+        "summary": "A Dockerfile is a plain-text file containing a sequence of instructions that Docker uses to build an image. These instructions are processed...",
+        "url": "https://www.geeksforgeeks.org/devops/what-is-dockerfile-syntax/",
+        "file": "devops_what_is_dockerfile_syntax.md",
+        "minutes": 4
+      },
+      {
+        "id": "8.11",
+        "title": "Docker Networking",
+        "summary": "Docker networking enables containers to communicate with each other, the Docker host and external systems. Each container runs in its own...",
+        "url": "https://www.geeksforgeeks.org/devops/basics-of-docker-networking/",
+        "file": "devops_basics_of_docker_networking.md",
+        "minutes": 3
+      },
+      {
+        "id": "8.12",
+        "title": "Docker Compose",
+        "summary": "Docker Compose makes it easier to define and manage multi-container applications from a single configuration file. It helps simplify the...",
+        "url": "https://www.geeksforgeeks.org/devops/docker-compose/",
+        "file": "devops_docker_compose.md",
+        "minutes": 11
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Cloud Platforms",
+    "level": "INTERMEDIATE",
+    "topics": [
+      {
+        "id": "9.1",
+        "title": "Amazon Web Services (AWS) Tutorial",
+        "summary": "AWS is Amazon\u2019s leading cloud platform, offering 200+ managed services on secure, globally distributed, highly available infrastructure, and...",
+        "url": "https://www.geeksforgeeks.org/devops/aws-tutorial/",
+        "file": "devops_aws_tutorial.md",
+        "minutes": 7
+      },
+      {
+        "id": "9.2",
+        "title": "Microsoft Azure Tutorial",
+        "summary": "Microsoft Azure is a cloud computing platform that provides services like computing, storage, networking, and databases to help businesses...",
+        "url": "https://www.geeksforgeeks.org/devops/microsoft-azure/",
+        "file": "devops_microsoft_azure.md",
+        "minutes": 12
+      },
+      {
+        "id": "9.3",
+        "title": "Google Cloud Platform Tutorial",
+        "summary": "Google Cloud Platform (GCP) is a powerful cloud computing platform built on the same infrastructure that powers Google\u2019s global services. It...",
+        "url": "https://www.geeksforgeeks.org/devops/google-cloud-platform-tutorial/",
+        "file": "devops_google_cloud_platform_tutorial.md",
+        "minutes": 4
+      },
+      {
+        "id": "9.4",
+        "title": "How to Use AWS ECS to Deploy and Manage Containerized Applications?",
+        "summary": "Containers can be deployed for applications on the AWS cloud platform. AWS has a special application for managing containerized applications....",
+        "url": "https://www.geeksforgeeks.org/devops/how-to-use-aws-ecs-to-deploy-and-manage-containerized-applications/",
+        "file": "devops_how_to_use_aws_ecs_to_deploy_and_manage_containerized_applications.md",
+        "minutes": 3
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Infrastructure as Code",
+    "level": "INTERMEDIATE TO ADVANCED",
+    "topics": [
+      {
+        "id": "10.1",
+        "title": "Infrastructure as Code (IaC)",
+        "summary": "Infrastructure as Code (IaC) is a modern DevOps practice where servers, networks, and cloud resources are automatically provisioned and...",
+        "url": "https://www.geeksforgeeks.org/devops/what-is-infrastructure-as-code-iac/",
+        "file": "devops_what_is_infrastructure_as_code_iac.md",
+        "minutes": 6
+      },
+      {
+        "id": "10.2",
+        "title": "Introduction to Terraform",
+        "summary": "Terraform, developed by HashiCorp, is an industry-standard Infrastructure as Code (IaC) tool used to build, modify, and manage infrastructure...",
+        "url": "https://www.geeksforgeeks.org/devops/what-is-terraform/",
+        "file": "devops_what_is_terraform.md",
+        "minutes": 9
+      },
+      {
+        "id": "10.3",
+        "title": "Terraform Syntax With Examples",
+        "summary": "Terraform Uses HashiCorp Configuration Language (HCL) which help engineers in designing repeatable and production-ready systems with ease.",
+        "url": "https://www.geeksforgeeks.org/devops/terraform-syntax-with-examples/",
+        "file": "devops_terraform_syntax_with_examples.md",
+        "minutes": 2
+      },
+      {
+        "id": "10.4",
+        "title": "Terraform Resources",
+        "summary": "Terraform resources are the core building blocks of Infrastructure as Code, representing every infrastructure component Terraform creates and...",
+        "url": "https://www.geeksforgeeks.org/devops/terraform-resources/",
+        "file": "devops_terraform_resources.md",
+        "minutes": 11
+      },
+      {
+        "id": "10.5",
+        "title": "Modules Block in Terraform",
+        "summary": "Terraform is an open-source Infrastructure as Code (IaC) tool that allows teams to define and provision infrastructure declaratively across...",
+        "url": "https://www.geeksforgeeks.org/devops/modules-block-in-terraform/",
+        "file": "devops_modules_block_in_terraform.md",
+        "minutes": 5
+      },
+      {
+        "id": "10.6",
+        "title": "Create AWS EC2 using Terraform",
+        "summary": "Amazon EC2 is a web service presented by Amazon Web Services (AWS) that gives resizable compute capacity in the cloud. It permits clients to...",
+        "url": "https://www.geeksforgeeks.org/devops/how-to-create-aws-ec2-using-terraform/",
+        "file": "devops_how_to_create_aws_ec2_using_terraform.md",
+        "minutes": 8
+      },
+      {
+        "id": "10.7",
+        "title": "AWS Cloudformation",
+        "summary": "AWS CloudFormation is an Infrastructure as Code (IaC) service that helps users create and manage AWS resources using code templates.",
+        "url": "https://www.geeksforgeeks.org/cloud-computing/aws-cloudformation/",
+        "file": "cloud_computing_aws_cloudformation.md",
+        "minutes": 7
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Kubernetes & Orchestration",
+    "level": "ADVANCED",
+    "topics": [
+      {
+        "id": "11.1",
+        "title": "Kubernetes Tutorial",
+        "summary": "Kubernetes is an open-source container management platform",
+        "url": "https://www.geeksforgeeks.org/devops/kubernetes-tutorial/",
+        "file": "devops_kubernetes_tutorial.md",
+        "minutes": 2
+      },
+      {
+        "id": "11.2",
+        "title": "Introduction to Kubernetes (K8s)",
+        "summary": "Before Kubernetes, Docker made application deployment easier by packaging applications and their dependencies into portable containers. As...",
+        "url": "https://www.geeksforgeeks.org/devops/introduction-to-kubernetes-k8s/",
+        "file": "devops_introduction_to_kubernetes_k8s.md",
+        "minutes": 3
+      },
+      {
+        "id": "11.3",
+        "title": "Kubernetes - Architecture",
+        "summary": "Kubernetes follows a client\u2013server architecture consisting of a control plane (master) and worker nodes. The control plane includes...",
+        "url": "https://www.geeksforgeeks.org/devops/kubernetes-architecture/",
+        "file": "devops_kubernetes_architecture.md",
+        "minutes": 4
+      },
+      {
+        "id": "11.4",
+        "title": "Fundamental Kubernetes Components and their role in Container Orchestration",
+        "summary": "Kubernetes or K8s is an open-sourced container orchestration technology that is used for automating the manual processes of deploying,...",
+        "url": "https://www.geeksforgeeks.org/devops/fundamental-kubernetes-components-and-their-role-in-container-orchestration/",
+        "file": "devops_fundamental_kubernetes_components_and_their_role_in_container_orchestration.md",
+        "minutes": 10
+      },
+      {
+        "id": "11.5",
+        "title": "Kubernetes - Kubectl",
+        "summary": "Kubectl (often pronounced cube-control or cube-c-t-l) is the command-line interface (CLI) for Kubernetes. It acts as your control panel,...",
+        "url": "https://www.geeksforgeeks.org/devops/kubernetes-kubectl/",
+        "file": "devops_kubernetes_kubectl.md",
+        "minutes": 9
+      },
+      {
+        "id": "11.6",
+        "title": "How to Create and Manage Kubernetes Pods",
+        "summary": "A Pod represents a single instance of a running process in your cluster and can contain one or more containers. Think of a Pod as a...",
+        "url": "https://www.geeksforgeeks.org/devops/kubernetes-pods/",
+        "file": "devops_kubernetes_pods.md",
+        "minutes": 10
+      },
+      {
+        "id": "11.7",
+        "title": "Kubernetes Deployment",
+        "summary": "A Kubernetes Deployment is a Kubernetes resource used to manage and update applications running in Pods. It helps to:",
+        "url": "https://www.geeksforgeeks.org/devops/kubernetes-deployment/",
+        "file": "devops_kubernetes_deployment.md",
+        "minutes": 9
+      },
+      {
+        "id": "11.8",
+        "title": "Kubernetes Services | Complete Guide",
+        "summary": "A Kubernetes Service is a stable networking abstraction that exposes a group of Pods as a single network endpoint. Pods in Kubernetes are...",
+        "url": "https://www.geeksforgeeks.org/devops/kubernetes-service/",
+        "file": "devops_kubernetes_service.md",
+        "minutes": 16
+      },
+      {
+        "id": "11.9",
+        "title": "Kubernetes Namespaces",
+        "summary": "In Kubernetes, Namespaces act as virtual clusters within a physical Kubernetes cluster, enabling logical isolation and resource management...",
+        "url": "https://www.geeksforgeeks.org/devops/kubernetes-namespaces/",
+        "file": "devops_kubernetes_namespaces.md",
+        "minutes": 5
+      },
+      {
+        "id": "11.10",
+        "title": "Kubernetes - ConfigMaps",
+        "summary": "A ConfigMap stores non-sensitive configuration data (like URLs, hostnames, or settings) in key-value pairs, separate from application code....",
+        "url": "https://www.geeksforgeeks.org/devops/kubernetes-configmap/",
+        "file": "devops_kubernetes_configmap.md",
+        "minutes": 7
+      },
+      {
+        "id": "11.11",
+        "title": "Kubernetes Secrets - Secure Storage for Sensitive Data",
+        "summary": "A Kubernetes Secret is an object used to store sensitive information. Secrets help applications access sensitive data without storing it...",
+        "url": "https://www.geeksforgeeks.org/devops/kubernetes-secrets/",
+        "file": "devops_kubernetes_secrets.md",
+        "minutes": 9
+      },
+      {
+        "id": "11.12",
+        "title": "Kubernetes Persistent Storage: Volumes, PVs, and PVCs",
+        "summary": "Kubernetes provides different storage options for applications running inside Pods. Container filesystems are temporary by default, so data...",
+        "url": "https://www.geeksforgeeks.org/devops/kubernetes-volumes/",
+        "file": "devops_kubernetes_volumes.md",
+        "minutes": 8
+      },
+      {
+        "id": "11.13",
+        "title": "Kubernetes Ingress",
+        "summary": "Ingress is an API object that manages external access to services within a cluster, typically via HTTP and HTTPS. It acts as a smart router...",
+        "url": "https://www.geeksforgeeks.org/devops/what-is-kubernetes-ingress/",
+        "file": "devops_what_is_kubernetes_ingress.md",
+        "minutes": 11
+      },
+      {
+        "id": "11.14",
+        "title": "Manual Scheduling In Kubernetes",
+        "summary": "The Kubernetes Scheduler is a control plane component responsible for deciding which node should run each Pod. It evaluates available nodes...",
+        "url": "https://www.geeksforgeeks.org/devops/manual-scheduling-in-kubernetes/",
+        "file": "devops_manual_scheduling_in_kubernetes.md",
+        "minutes": 3
+      },
+      {
+        "id": "11.15",
+        "title": "How To Use Kubernetes Taints and Tolerations?",
+        "summary": "In Kubernetes, taints and tolerations control which Pods can be scheduled on specific Nodes. Taints repel Pods from Nodes, while tolerations...",
+        "url": "https://www.geeksforgeeks.org/devops/how-to-use-kubernetes-taints-and-tolerations/",
+        "file": "devops_how_to_use_kubernetes_taints_and_tolerations.md",
+        "minutes": 5
+      },
+      {
+        "id": "11.16",
+        "title": "Kubernetes Deployment Stratagies",
+        "summary": "Deployment strategies in Kubernetes help update applications safely while minimizing downtime and reducing risk.",
+        "url": "https://www.geeksforgeeks.org/devops/what-are-the-kubernetes-deployment-stratagies/",
+        "file": "devops_what_are_the_kubernetes_deployment_stratagies.md",
+        "minutes": 5
+      },
+      {
+        "id": "11.17",
+        "title": "Kubernetes RBAC",
+        "summary": "Kubernetes RBAC (Role\u2011Based Access Control) is a security mechanism used to manage permissions and control access to resources within a...",
+        "url": "https://www.geeksforgeeks.org/devops/how-to-use-kubernetes-rbac-role-based-access-control/",
+        "file": "devops_how_to_use_kubernetes_rbac_role_based_access_control.md",
+        "minutes": 5
+      },
+      {
+        "id": "11.18",
+        "title": "DevOps Best Practices for Kubernetes",
+        "summary": "Kubernetes works best when combined with DevOps practices that automate application delivery, improve security, and ensure reliable...",
+        "url": "https://www.geeksforgeeks.org/devops/devops-best-practices-for-kubernetes/",
+        "file": "devops_devops_best_practices_for_kubernetes.md",
+        "minutes": 2
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Monitoring & Observability",
+    "level": "ADVANCED",
+    "topics": [
+      {
+        "id": "12.1",
+        "title": "Types of Monitoring in System Design",
+        "summary": "Monitoring in system design ensures a system remains healthy, reliable, and high-performing. It continuously collects and analyzes data to...",
+        "url": "https://www.geeksforgeeks.org/system-design/types-of-monitoring-in-system-design/",
+        "file": "system_design_types_of_monitoring_in_system_design.md",
+        "minutes": 6
+      },
+      {
+        "id": "12.2",
+        "title": "Prometheus Monitoring",
+        "summary": "Prometheus is an open-source monitoring tool designed to capture and process numeric time-series data with associated metrics, labels, and...",
+        "url": "https://www.geeksforgeeks.org/devops/prometheus-monitoring/",
+        "file": "devops_prometheus_monitoring.md",
+        "minutes": 4
+      },
+      {
+        "id": "12.3",
+        "title": "Prometheus Collector Registry",
+        "summary": "Prometheus has emerged as a cornerstone in monitoring and alerting for modern cloud-native applications and is the preferred choice for...",
+        "url": "https://www.geeksforgeeks.org/devops/what-is-prometheus-collector-registry/",
+        "file": "devops_what_is_prometheus_collector_registry.md",
+        "minutes": 7
+      },
+      {
+        "id": "12.4",
+        "title": "Scrape Config in Prometheus",
+        "summary": "Prometheus follows a pull-based monitoring model, meaning it actively fetches metrics from configured targets rather than waiting for data to...",
+        "url": "https://www.geeksforgeeks.org/devops/what-is-scrape-config-in-prometheus/",
+        "file": "devops_what_is_scrape_config_in_prometheus.md",
+        "minutes": 5
+      },
+      {
+        "id": "12.5",
+        "title": "Prometheus Blackbox Exporter",
+        "summary": "Prometheus\u00a0Blackbox\u00a0Exporter\u00a0is\u00a0a\u00a0versatile\u00a0monitoring\u00a0tool\u00a0that\u00a0checks\u00a0endpoints\u00a0over\u00a0multiple\u00a0network\u00a0protocols.",
+        "url": "https://www.geeksforgeeks.org/devops/prometheus-blackbox-exporter/",
+        "file": "devops_prometheus_blackbox_exporter.md",
+        "minutes": 9
+      },
+      {
+        "id": "12.6",
+        "title": "Grafana",
+        "summary": "Grafana is an open-source observability platform that visualizes real-time data from multiple external sources without storing it. It acts as...",
+        "url": "https://www.geeksforgeeks.org/blogs/what-is-grafana/",
+        "file": "blogs_what_is_grafana.md",
+        "minutes": 7
+      },
+      {
+        "id": "12.7",
+        "title": "How to Use Grafana to Visualize Kubernetes Metrics",
+        "summary": "Grafana\u00a0is\u00a0an\u00a0open-source\u00a0monitoring\u00a0tool\u00a0that\u00a0enables\u00a0users\u00a0to\u00a0create\u00a0custom\u00a0dashboards\u00a0and\u00a0visualizations.",
+        "url": "https://www.geeksforgeeks.org/devops/how-to-use-grafana-to-visualize-kubernetes-metrics/",
+        "file": "devops_how_to_use_grafana_to_visualize_kubernetes_metrics.md",
+        "minutes": 4
+      },
+      {
+        "id": "12.8",
+        "title": "Working with Prometheus and Grafana Using Helm",
+        "summary": "HELM is a package manager for Kubernetes that simplifies the process of installing, configuring, upgrading, and managing applications on a...",
+        "url": "https://www.geeksforgeeks.org/devops/working-with-prometheus-and-grafana-using-helm/",
+        "file": "devops_working_with_prometheus_and_grafana_using_helm.md",
+        "minutes": 3
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Careers & Interviews",
+    "level": "ADVANCED",
+    "topics": [
+      {
+        "id": "13.1",
+        "title": "Companies That Use DevOps",
+        "summary": "DevOps is not just a trend, it has become the backbone of modern software engineering. By combining development and operations with...",
+        "url": "https://www.geeksforgeeks.org/devops/companies-that-use-devops/",
+        "file": "devops_companies_that_use_devops.md",
+        "minutes": 4
+      },
+      {
+        "id": "13.2",
+        "title": "Careers and Jobs in DevOps",
+        "summary": "DevOps has emerged as one of the most in-demand fields in the tech industry, bridging the gap between software development and IT operations....",
+        "url": "https://www.geeksforgeeks.org/devops/careers-and-jobs-in-devops/",
+        "file": "devops_careers_and_jobs_in_devops.md",
+        "minutes": 3
+      },
+      {
+        "id": "13.3",
+        "title": "DevOps Engineer - Salary, Skills & Career Guide",
+        "summary": "A DevOps Engineer is a professional who bridges development and operations, ensuring faster software delivery, automation, and reliability....",
+        "url": "https://www.geeksforgeeks.org/devops/devops-engineer-salary-and-skills-required/",
+        "file": "devops_devops_engineer_salary_and_skills_required.md",
+        "minutes": 3
+      },
+      {
+        "id": "13.4",
+        "title": "DevOps Interview Questions and Answers",
+        "summary": "DevOps is a high-demand field and companies look for candidates with strong knowledge of CI/CD, automation, cloud platforms (AWS, Azure,...",
+        "url": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+        "file": "devops_devops_interview_questions.md",
+        "minutes": 31
+      }
+    ]
+  }
+]

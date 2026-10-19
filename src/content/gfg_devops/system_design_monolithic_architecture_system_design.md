@@ -1,0 +1,75 @@
+# Monolithic Architecture
+
+Source: https://www.geeksforgeeks.org/system-design/monolithic-architecture-system-design/
+
+Monolithic architecture is a software design approach in which the major components of an application, such as the user interface, business logic, and data access layer, are packaged and deployed as a single application unit.
+- Simplicity: A single deployment unit can make initial development, testing, and deployment easier.
+- Scalability and Maintenance: As the application grows, independently scaling or deploying individual components can become more difficult compared with distributed architectures.
+Example: In an e-commerce application, product catalog, user accounts, cart, orders, and payment functionality may all be implemented and deployed as one application.
+
+## Monolithic Architecture
+A typical monolithic application can be represented as:
+All major application modules are packaged and deployed together.
+
+## Components of Monolithic Architecture
+A monolithic application commonly contains the following components:
+- Presentation Layer: Handles user interfaces and incoming requests.
+- Business Logic: Implements application rules and workflows.
+- Data Access Layer: Handles communication with databases and persistence systems.
+- Database: Stores application data.
+- External Integrations: Connects to third-party APIs, authentication providers, payment gateways, or other services.
+- Cross-Cutting Components: Handle concerns such as logging, security, configuration, and monitoring.
+
+## Characteristics of Monolithic Architecture
+Monolithic architecture combines application components into a single deployment unit, simplifying development and internal communication. Key characteristics include:
+- Single Deployment Unit: The entire application is typically packaged and deployed as one unit.
+- Shared Runtime: Most application modules execute within the same process or runtime environment.
+- Direct Internal Communication: Modules communicate through method or function calls without requiring network-based requests.
+- Unified Codebase: Application components are maintained in a common codebase, which can still be organized into separate modules.
+- Shared Data Access: Modules commonly use a shared database or persistence layer to manage application data.
+- Limited Independent Scaling: Individual modules generally cannot scale separately; scaling often requires deploying additional instances of the entire application.
+
+## Design Principles for Monolithic Systems
+A monolithic system should still be designed with clear internal boundaries.
+- Modularity: Organize functionality into well-defined modules.
+- Separation of Concerns: Separate presentation, business logic, and data-access responsibilities.
+- Encapsulation: Hide implementation details and expose clear internal interfaces.
+- Low Coupling: Minimize unnecessary dependencies between modules.
+- High Cohesion: Keep related functionality within the same module.
+- Consistency: Follow common coding, testing, and architectural conventions.
+
+## When to Use Monolithic Architecture
+Monolithic architecture can be a good choice when:
+- The application is small or moderately complex.
+- The development team is small.
+- Fast initial development is important.
+- The domain is not yet stable enough to define reliable service boundaries.
+- Independent scaling of individual modules is not required.
+- Operational simplicity is more important than distributed-service flexibility.
+
+## Scaling Monolithic Systems
+Monolithic applications can be scaled using different techniques to improve performance, handle growing traffic, and reduce resource bottlenecks. Common approaches include:
+- Vertical Scaling: Increases CPU, memory, or storage capacity of the server hosting the application.
+- Horizontal Scaling: Runs multiple instances of the monolithic application behind a load balancer to distribute incoming traffic.
+- Caching: Stores frequently accessed data in memory to reduce database load and improve response times.
+- Performance Optimization: Improves database queries, algorithms, and resource utilization to eliminate performance bottlenecks.
+- Asynchronous Processing: Moves background tasks such as emails, report generation, and image processing to queues or workers.
+- Database Scaling: Uses indexing, read replicas, caching, or partitioning to handle increasing database workloads.
+
+## Advantages of Monolithic Architecture
+- Simpler Initial Development: Developers can work within a single application structure.
+- Straightforward Deployment: Only one application unit needs to be packaged and deployed.
+- Simpler Local Testing: Many workflows can be tested without coordinating multiple independently deployed services.
+- Lower Operational Complexity: Fewer distributed-system concerns such as service discovery, network failures, and distributed tracing.
+- Efficient Internal Communication: In-process calls usually avoid network serialization and communication overhead.
+- Suitable for Small Teams: Works well when a single team can manage the application effectively.
+- Lower Initial Infrastructure Cost: Usually requires fewer operational components than a distributed microservices environment.
+
+## Challenges of Monolithic Architecture
+Monolithic architecture can become difficult to scale, maintain, and deploy as applications grow. Key challenges include:
+- Increasing Codebase Complexity: Large codebases become harder to understand, maintain, and modify without clear module boundaries.
+- Limited Independent Deployment: Changes to individual modules generally require rebuilding and redeploying the entire application.
+- Limited Independent Scaling: Scaling a heavily used module often requires scaling the entire application, increasing resource usage.
+- Larger Failure Impact: Process crashes or resource exhaustion can affect multiple modules within the same application instance.
+- Technology Constraints: Using different programming languages or frameworks across modules can be challenging.
+- Longer Build and Deployment Cycles: Growing codebases may increase build, testing, and deployment time.

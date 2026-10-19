@@ -1,0 +1,99 @@
+# Layers of OSI Model
+
+Source: https://www.geeksforgeeks.org/computer-networks/open-systems-interconnection-model-osi/
+
+The OSI (Open Systems Interconnection) Model is a conceptual framework created by the International Organization for Standardization (ISO) to describe how data is transmitted across a network using a structured seven-layer architecture.
+- Divides network communication into seven functional layers.
+- Assigns specific responsibilities to each layer.
+- Promotes compatibility between different networking systems.
+- Simplifies network design, implementation, and troubleshooting.
+
+### Layer 1: The Physical Layer
+Physical Layer is the foundation of the OSI model, acting as the bridge for actual physical connections between devices. Its primary mission is the transmission of raw, unstructured bitstreams over a physical medium from one node to the next.
+- Core Responsibility: It manages the hardware-level transmission of individual bits. When receiving data, it translates incoming physical signals back into digital 0s and 1s to be processed by the Data Link layer.
+- Essential Hardware: Common devices operating at this level include Hubs, Repeaters, Modems, and Cables.
+- Bit Synchronization: It ensures the sender and receiver are "in sync" by providing a clock signal that controls the timing of bit transmission.
+- Bit Rate Control: It dictates the transmission speed, defined as the number of bits sent per second.
+- Physical Topologies: It defines the structural layout of the network, such as Bus, Star, or Mesh configurations.
+- Transmission Mode: It determines the direction of data flow, utilizing modes like Simplex (one-way), Half-Duplex (two-way, one at a time), or Full-Duplex (simultaneous two-way).
+
+### Layer 2: The Data Link Layer (DLL)
+Data Link Layer serves as the bridge between the physical hardware and the logical network, ensuring reliable node-to-node delivery of data. Its primary goal is to ensure that data transfer is error-free across the physical medium.
+- Data Packaging (Framing): A packet from the Network layer is encapsulated into a frame using "start" and "stop" bits, so the receiver knows where each unit of data begins and ends. One packet usually maps to one frame; it's split into multiple frames only if it's larger than the network's frame size (MTU).
+- Addressing and Hardware: DLL uses MAC addresses to identify devices and adds sender and receiver MAC addresses to the frame header. Common devices: Switches and Bridges.
+- Sublayers: DLL is divided into two sublayers, LLC (Logical Link Control), which handles flow and error control and interfaces with upper layers, and MAC (Media Access Control), which controls how devices access the shared medium and handles hardware addressing.
+- Error Control: Detects and retransmits damaged or lost frames.
+- Flow Control: Matches data rate between a fast sender and slow receiver to avoid loss.
+- Access Control: Decides which device can transmit when multiple devices share a channel, avoiding collisions.
+
+### Layer 3: The Network Layer
+Network Layer manages data transmission between hosts across different networks by handling logical addressing and path finding.
+- Data Unit: Data segments are encapsulated into Packets.
+- Logical Addressing: Assigns unique IP addresses (sender and receiver) to the packet header to identify devices globally.
+- Routing: Determines the most efficient physical path from the source to the destination across interconnected networks.
+- Hardware: Primarily implemented via Routers and Switches.
+- Inter-networking: Facilitates communication between disparate networks by directing traffic to the correct destination.
+
+### Layer 4: The Transport Layer
+Transport Layer ensures end-to-end delivery of entire messages. It acts as a liaison between the Application layer and the Network layer, making sure data reaches the correct application on the destination host.
+- Data Unit: Data is broken into Segments.
+- Service Point Addressing: Uses Port Numbers (e.g., Port 80 for web traffic) to deliver data to the correct process or application, not just the device.
+- Segmentation & Reassembly: Splits large messages into smaller segments for transmission and reassembles them in order at the destination.
+- Protocols: Common protocols include TCP (reliable), UDP (fast).
+- Connection-Oriented (TCP): Requires a "handshake" to establish a connection; ensures reliability via error checking and acknowledgements.
+- Connectionless (UDP): Sends data immediately without a formal connection; faster but offers no guarantee of delivery.
+
+### Layer 5: The Session Layer
+Session Layer acts as the "dialogue manager," controlling the opening, closing, and security of communication channels between two devices.
+- Session Lifecycle: Manages establishment, maintenance, and termination of connections between applications.
+- Authentication & Security: Verifies communicating parties and ensures the connection is secure.
+- Synchronization: Inserts checkpoints into the data stream so a failed transfer can resume from the last checkpoint instead of restarting.
+- Dialog Control: Directs whether communication is half-duplex (alternating) or full-duplex (simultaneous).
+Practical Example: In a web-based messenger, the Session Layer keeps the active link between your browser and server open, while handling background encryption and data conversion.
+
+### Layer 6: The Presentation Layer
+Often called the Translation Layer, the Presentation Layer ensures data is formatted, secured, and compressed so the receiving application can correctly interpret it.
+- Translation: Converts data from the Application layer into a standardized format for transmission, bridging differences in data representation between systems.
+- Standards & Formats: Handles media encoding using standards such as JPEG, MPEG, and GIF.
+- Encryption/Decryption: Secures data by converting plaintext into ciphertext and back, typically handled by protocols like TLS/SSL.
+- Compression: Reduces the number of bits needed for transmission, improving network efficiency and speed.
+
+### Layer 7: The Application Layer
+Application Layer sits at the top of the OSI stack, acting as the direct interface between the software user and the network. It produces the data to be sent and displays data received from other layers.
+- User Interface: Acts as a "window" for network-based applications (web browsers, email clients) to access network services.
+- Core Protocols: Uses high-level protocols such as HTTP/S (Web), SMTP (Email), FTP (File Transfer), and DNS (Domain Name Resolution).
+- Network Virtual Terminal (NVT): Lets users log into and interact with remote hosts as if physically present.
+- File Transfer, Access, and Management (FTAM): Provides a framework to retrieve, manage, and manipulate files on remote computers.
+- Directory Services: Offers distributed database access to manage global information about network objects and services.
+
+### Data Flows in the OSI Model
+When data moves from one device to another, it travels down through all 7 layers at the sender's end, then climbs back up through all 7 layers at the receiver's end.
+- Application Layer: Creates the data.
+- Presentation Layer: Formats and encrypts the data.
+- Session Layer: Establishes and manages the connection.
+- Transport Layer: Breaks data into segments for reliable delivery.
+- Network Layer: Packages segments into packets and routes them.
+- Data Link Layer: Frames the packets and sends them to the next device.
+- Physical Layer: Converts frames into bits and transmits them.
+Each layer adds its own information to the data, and these additions are removed in reverse order when the data arrives.
+
+### Example
+Suppose Person A sends an email to Person B.
+- Step 1 (Application Layer): Person A writes and sends the email using an app like Gmail or Outlook.
+- Step 2 (Presentation Layer): The mail app encrypts and formats the data for transmission.
+- Step 3 (Session Layer): A connection is established between sender and receiver.
+- Step 4 (Transport Layer): The email data is broken into segments, with sequence numbers and error-checking added for reliability.
+- Step 5 (Network Layer): Packets are addressed to find the best route.
+- Step 6 (Data Link Layer): Packets are framed, MAC addresses are added, and frames are checked for errors.
+- Step 7 (Physical Layer): Frames are transmitted as electrical or optical signals over a physical medium like an ethernet cable or Wi-Fi.
+Once the email reaches Person B, this process runs in reverse, each layer removes its added information, until the original email is displayed in Person B's inbox.
+
+### Protocols Used in the OSI Layers
+Layer	Working	Protocol Data Unit (PDU)	Protocols
+Physical Layer	Establishes physical connection between devices and transmits raw bits over the medium.	Bits	USB, SONET/SDH
+Data Link Layer	Provides node-to-node delivery and error detection/correction.	Frames	Ethernet, PPP, PPTP
+Network Layer	Handles logical addressing and routing of data between different networks.	Packets	IP, ICMP, IGMP, OSPF
+Transport Layer	Ensures end-to-end communication, segmentation, flow control, and error handling.	Segments (TCP) / Datagrams (UDP)	TCP, UDP, SCTP
+Session Layer	Establishes, manages, and terminates communication sessions between applications.	Data	RPC
+Presentation Layer	Translates, encrypts, and formats data for the application layer.	Data	TLS/SSL, MIME
+Application Layer	Provides network services directly to end-user applications.	Data	FTP, SMTP, DNS, DHCP, NetBIOS
