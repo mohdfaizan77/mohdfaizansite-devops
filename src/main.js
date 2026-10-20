@@ -4,6 +4,13 @@ import { escapeHTML, renderArticle } from './article.js'
 
 const topicCount = phases.reduce((count, phase) => count + phase.topics.length, 0)
 const topics = phases.flatMap(phase => phase.topics.map(topic => ({ ...topic, phase })))
+const progressKey = 'devops-completed-topics-v1'
+let completedTopics = new Set()
+try {
+  const saved = JSON.parse(localStorage.getItem(progressKey) || '[]')
+  if (Array.isArray(saved)) completedTopics = new Set(saved.filter(url => topics.some(topic => topic.url === url)))
+} catch { /* Progress still works for this visit when storage is unavailable. */ }
+let progressSaved = true
 let returnFocus
 let articleRequest = 0
 const phaseColor = phase => phase.level.includes('ADVANCED') ? 'var(--advanced)' : 'var(--accent)'
@@ -47,13 +54,13 @@ document.querySelector('#app').innerHTML = `
   </section>
   <section id="journey" class="journey" aria-labelledby="journey-title" hidden>
     <div class="journey-intro"><div class="eyebrow"><span class="status-dot"></span> THE LEARNING PATH</div><h1 id="journey-title">Every stage.<br><span>Connected.</span></h1><p>Build your foundation. Automate your workflow.<br>Explore every stage of the DevOps lifecycle.</p><div class="journey-meta"><span>${phases.length} phases</span><span>${topicCount} topics</span><span>Easy &rarr; Advanced</span></div></div>
-    <div class="topic-search"><label for="topic-search">Find a topic</label><input id="topic-search" type="search" placeholder="Search Linux, Git, Docker, Kubernetes..." autocomplete="off"><span id="search-count" role="status">${topicCount} topics</span></div>
+    <div class="topic-search"><label for="topic-search">Find a topic</label><input id="topic-search" type="search" placeholder="Search Linux, Git, Docker, Kubernetes..." autocomplete="off"><div class="topic-filters"><label for="completion-filter">Show topics<select id="completion-filter"><option value="all">All topics</option><option value="pending">Not completed</option><option value="completed">Completed</option></select></label><p id="progress-count" role="status"></p></div><span id="search-count" role="status">${topicCount} topics</span></div>
     <div class="roadmap-layout">
       <aside class="phase-navigation" aria-label="Jump to phase"><span class="nav-caption">YOUR ROADMAP</span>${phases.map(phase => `<a href="#phase-${phase.id}" style="--phase:${phaseColor(phase)}"><span class="phase-index">${String(phase.id).padStart(2, '0')}</span><span>${phase.title}</span><i></i></a>`).join('')}<p>There's no rush.<br>One concept at a time.</p></aside>
       <div class="roadmap"><div class="path-start"><span class="status-dot"></span> YOUR JOURNEY STARTS HERE</div>${phases.map(phase => `
         <section class="phase" id="phase-${phase.id}" style="--phase:${phaseColor(phase)}" aria-labelledby="phase-title-${phase.id}">
           <div class="phase-heading"><span class="phase-number">${String(phase.id).padStart(2, '0')}</span><div><span class="phase-level">PHASE ${phase.id} &middot; ${phase.level}</span><h2 id="phase-title-${phase.id}">${phase.title}</h2></div><span class="phase-topic-count">${String(phase.topics.length).padStart(2, '0')} TOPICS</span></div>
-          <div class="topic-branches">${phase.topics.map((topic, index) => `<div class="topic-branch ${index % 2 ? 'branch-right' : ''}"><span class="branch-point"></span><button class="topic-card" data-topic="${topic.id}" aria-haspopup="dialog"><span class="topic-code">TOPIC ${topic.id}<span aria-hidden="true">&nearr;</span></span><h3>${escapeHTML(topic.title)}</h3><p>${escapeHTML(topic.summary)}</p><span class="topic-action">Explore topic <span aria-hidden="true">&rarr;</span></span></button></div>`).join('')}</div>
+          <div class="topic-branches">${phase.topics.map((topic, index) => `<div class="topic-branch ${index % 2 ? 'branch-right' : ''}"><span class="branch-point"></span><button class="topic-card" data-topic="${topic.id}" aria-haspopup="dialog"><span class="topic-code">TOPIC ${topic.id}<span aria-hidden="true">&nearr;</span></span><h3>${escapeHTML(topic.title)}</h3><span class="completion-badge" hidden>✓ Completed</span><p>${escapeHTML(topic.summary)}</p><span class="topic-action">Explore topic <span aria-hidden="true">&rarr;</span></span></button></div>`).join('')}</div>
         </section>`).join('')}<div class="path-end"><span aria-hidden="true">&#10035;</span><h2>From development.<br>Into production.</h2><p>Build, deliver, and operate with confidence.</p><a href="#home">Back to the beginning &nearr;</a></div></div>
     </div>
     ${contentCredit}
@@ -133,8 +140,9 @@ async function showTopic(id) {
     <div class="panel-header"><span class="panel-breadcrumb">PHASE ${topic.phase.id} / ${topic.phase.title}</span><div class="panel-tools">${themeButton}<button class="close-button" aria-label="Close topic">&times;</button></div></div>
     <div class="panel-scroll"><span class="panel-topic-code">TOPIC ${topic.id} &middot; ${topic.phase.level}</span><h2 id="topic-title">${escapeHTML(topic.title)}</h2>
       <div class="article-meta"><a href="${escapeHTML(topic.url)}" target="_blank" rel="noopener noreferrer">Content credit: GeeksforGeeks &nearr;</a><span>${topic.minutes} min read</span></div>
-      <article class="article-body" aria-label="Article content" aria-busy="true"><p role="status">Loading article...</p></article>
+      <article class="article-body" aria-labelledby="topic-title" aria-busy="true"><p role="status">Loading article...</p></article>
     </div>
+    <div class="panel-progress"><button class="completion-toggle" type="button" data-completion="${escapeHTML(topic.id)}" aria-pressed="${completedTopics.has(topic.url)}">${completedTopics.has(topic.url) ? '✓ Completed — mark not completed' : 'Mark as completed'}</button></div>
     <div class="panel-footer"><button ${previous ? `data-topic="${previous.id}"` : 'disabled'}><span>&larr; PREVIOUS</span><strong>${escapeHTML(previous?.title || 'The beginning')}</strong></button><button class="next-topic" ${next ? `data-topic="${next.id}"` : 'disabled'}><span>NEXT &rarr;</span><strong>${escapeHTML(next?.title || 'End of roadmap')}</strong></button></div>`
   document.querySelectorAll('.topic-card').forEach(card => card.classList.toggle('selected', card.dataset.topic === id))
   if (!dialog.open) {
@@ -169,27 +177,53 @@ async function showTopic(id) {
   }
 }
 
-document.querySelector('#topic-search').addEventListener('input', event => {
-  const query = event.target.value.trim().toLowerCase()
+function filterTopics() {
+  const query = document.querySelector('#topic-search').value.trim().toLowerCase()
+  const filter = document.querySelector('#completion-filter').value
   let count = 0
   document.querySelectorAll('.phase').forEach(section => {
     let phaseCount = 0
     section.querySelectorAll('.topic-card').forEach(card => {
       const topic = topics.find(topic => topic.id === card.dataset.topic)
-      const matches = `${topic.title} ${topic.summary} ${topic.phase.title}`.toLowerCase().includes(query)
+      const completed = completedTopics.has(topic.url)
+      const matchesSearch = `${topic.title} ${topic.summary} ${topic.phase.title}`.toLowerCase().includes(query)
+      const matchesStatus = filter === 'all' || (filter === 'completed' ? completed : !completed)
+      const matches = matchesSearch && matchesStatus
       card.closest('.topic-branch').hidden = !matches
+      card.classList.toggle('completed', completed)
+      card.querySelector('.completion-badge').hidden = !completed
       if (matches) phaseCount++
     })
     section.hidden = phaseCount === 0
     count += phaseCount
   })
-  document.querySelector('#search-count').textContent = count ? `${count} of ${topicCount} topics` : 'No topics found. Try another search.'
+  document.querySelector('#search-count').textContent = count ? `${count} of ${topicCount} topics shown` : 'No matching topics. Try another search or filter.'
+  document.querySelector('#progress-count').textContent = `${completedTopics.size} of ${topicCount} completed${progressSaved ? '' : ' · Progress could not be saved on this device.'}`
   document.querySelectorAll('.phase-navigation a').forEach(link => {
     link.hidden = document.querySelector(link.getAttribute('href')).hidden
   })
-})
+}
+
+document.querySelector('#topic-search').addEventListener('input', filterTopics)
+document.querySelector('#completion-filter').addEventListener('change', filterTopics)
+filterTopics()
 
 document.addEventListener('click', event => {
+  const completionButton = event.target.closest('[data-completion]')
+  if (completionButton) {
+    const topic = topics.find(topic => topic.id === completionButton.dataset.completion)
+    if (!topic) return
+    if (completedTopics.has(topic.url)) completedTopics.delete(topic.url)
+    else completedTopics.add(topic.url)
+    try {
+      localStorage.setItem(progressKey, JSON.stringify([...completedTopics]))
+      progressSaved = true
+    } catch { progressSaved = false }
+    const completed = completedTopics.has(topic.url)
+    completionButton.setAttribute('aria-pressed', String(completed))
+    completionButton.textContent = completed ? '✓ Completed — mark not completed' : 'Mark as completed'
+    filterTopics()
+  }
   if (event.target.closest('.theme-toggle')) {
     const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
     document.documentElement.dataset.theme = theme
@@ -208,7 +242,8 @@ dialog.addEventListener('close', () => {
   stopSidebarResize()
   document.body.classList.remove('panel-open')
   document.querySelectorAll('.topic-card.selected').forEach(card => card.classList.remove('selected'))
-  returnFocus?.focus({ preventScroll: true })
+  const focusTarget = returnFocus?.closest('[hidden]') ? document.querySelector('#completion-filter') : returnFocus
+  focusTarget?.focus({ preventScroll: true })
 })
 function renderRoute() {
   const isJourney = location.hash === '#journey' || location.hash.startsWith('#phase-')
